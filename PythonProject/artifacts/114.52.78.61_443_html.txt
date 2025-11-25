@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>IBK 미디어 아카이브</title>
+
+	<link rel="stylesheet" href="/assets/css/common.css" />
+	<link rel="stylesheet" href="/assets/css/login.css" />
+	<link rel="stylesheet" href="/assets/css/archive/error.css" />
+	<link rel="icon" type="image/png" href="/assets/favicon.ico">
+
+	<script src="/assets/js/jquery-3.7.1.min.js"></script>
+	<script src="/assets/js/common.js"></script>
+	<script src="/assets/js/lib.js"></script>
+	<script src="/assets/js/jquery.cookie.min.js"></script>
+	<script src="/assets/js/jquery.validate.js"></script>
+	<script src="/assets/js/archive/validate.js"></script>
+	<script src="/assets/js/archive/util.js"></script>
+</head>
+
+<body>
+	<div class="wrap" style="min-height: 98vh;">
+		<div class="header" style="padding: 0; display: block;">
+			<div style="height: 60px; text-align: center; background-color: #e4f2ff;">
+				<img src="/assets/images/common/logo.svg" alt="IBK 기업은행 로고 이미지" style="padding-top: 20px;">
+			</div>
+		</div>
+		
+		<div class="section main sub__detail--error" style="padding-top: 80px;">
+			<p class="sub__detail--error-p1">인증정보를 찾을 수 없습니다.</p>
+			<p class="sub__detail--error-p3" style="font-size: 15px; margin-top: 10px;">미디어 아카이브는 M포탈을 통해<br/>이용 할 수 있습니다.</p>
+			<p class="sub__detail--error-p2" style="margin-top: 50px;">지속적인 문제 발생시<br>관리자에게 문의 바랍니다.</p>
+		</div>
+		
+		<div class="footer">
+				Copyright. IBK(INDUSTRIAL BANK OF KOREA)<br>
+				All rights reserved.
+		</div>
+	</div>
+</body>
+
+</html>

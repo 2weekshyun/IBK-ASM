@@ -1,0 +1,12 @@
+Report for 127.0.0.1
+Generated: 2025-11-12 17:03:17
+
+Open ports:
+ - 135: open
+ - 445: open
+ - 902: 220 VMware Authentication Daemon Version 1.10: SSL Required, ServerDaemonProtocol:SOAP, MKSDisplayProtocol:VNC , , NFCSSL supported/t,
+ - 912: 220 VMware Authentication Daemon Version 1.0, ServerDaemonProtocol:SOAP, MKSDisplayProtocol:VNC , , ,
+
+SSH check result:
+OK: False
+SSH not open or SSH checks disabled

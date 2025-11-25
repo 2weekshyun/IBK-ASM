@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus��">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  //alert(window.location.search.substring(1));
+		var query = window.location.search.substring(1);
+		var visitedAt = (new Date()).getTime();
+		if (navigator.userAgent.indexOf("Android") >= 0) {
+			
+			window.location.href="Intent://kakaolink?" + query + "#Intent;scheme=kakao816961d76321eb6c24be53904a5d4ca9;package=com.ibk.Moasis;S.browser_fallback_url=http://ibk.kr/mp;end";
+			
+			/*
+			setTimeout(() => {
+				if (navigator.userAgent.indexOf("Samsung") >= 0) {
+					var iframe = document.createElement('iframe');
+					iframe.style.visivility = 'hidden';
+					iframe.src = "kakao816961d76321eb6c24be53904a5d4ca9://kakaolink?key1=value1&key2=value2";
+					document.body.appendChild(iframe);
+					
+					document.body.removeChilde(iframe);
+					
+				} else {
+					setTimeout(function() {
+						if ((new Date()).getTime() - visitedAt < 2000) {
+							var div = document.getElementById("notice");
+							div.html("IBK M��Ż ���� ��ġ���� �ʾҽ��ϴ�.<br>�Ʒ� ��ư�� ���� �ٿ�ε� �������� �̵��ϼ���.");
+							window.location.href = "http://ibk.kr/mp";
+						}
+					}, 500);
+					
+					setTimeout(function() {
+						window.location.href="Intent://kakaolink?key1=value1&key2=value2#Intent;scheme=kakao816961d76321eb6c24be53904a5d4ca9;package=com.ibk.Moasis;end";
+					}, 0);
+				}
+			}, 2000);
+			*/
+		} else {
+			setTimeout(function() {
+				if ((new Date()).getTime() - visitedAt < 2000) {
+					window.location.href = "http://ibk.kr/mp";
+				}
+			}, 500);
+			
+			setTimeout(function() {
+				window.location.href="kakao816961d76321eb6c24be53904a5d4ca9://kakaolink?" + query;
+			}, 0);
+		}
+		
+		//parent.window.close();
+  </script>
+ </head>
+ <body>
+ <div id="notice">
+ 
+ </div>
+ </body>
+</html>

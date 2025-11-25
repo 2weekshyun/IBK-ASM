@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>::::: ìì°ìííë«í¼ :::::</title> 
+  <script language="javascript">
+    function goLogin() 
+    {
+        window.location.href = "./ria/nexacro/index.jsp";
+    };
+  </script>
+  
+</head>
+<body onload="goLogin()">
+</body>
+</html>

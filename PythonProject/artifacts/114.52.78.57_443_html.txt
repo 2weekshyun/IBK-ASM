@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>IBK�������� �� �ٿ�ε�</title>
+		<style type="text/css">
+			body {font-family: 'NanumSquare', sans-serif;}
+			.step (background: white; border: 1px #ccc solid;border-radius:4px; padding:15px;)
+		</style>
+		<script lang="ko">			
+		</script>		
+	</head>
+<body>
+<img src="/resources/img/logo.png" width="150px"><br>
+<p class="sub">�����ۿ��� <strong>NEW IBK ����������</strong>���� ����˴ϴ�.</p>
+
+        <img src="/resources/img/old_icon.png"  width="48" height="48"  class="transition-img" />
+		<img src="/resources/img/navi.jpg"  width="28" height="28"  class="transition-img" />
+		<img src="/resources/img/new_icon.png"  width="48" height="48"  class="transition-img" />
+		<br><br><br><font color="red">�弳ġ �� ������ ������û�帳�ϴ�.<br>
+<img src="/resources/img/del2.png""></p>
+<div class="step">
+			<center>
+			<table>
+			<tr>
+			<td colspan="2">
+			<div id="android" >
+			<a href="/resources/download/IBK_auth_real_2.apk" type="application/vnd.android.package-archive">
+			<img src="/resources/img/android_down.png" width="200px">
+			</div> <br>
+			<div id="apple">
+			<a href="itms-services://?action=download-manifest&amp;url=https://auth.ibk.co.kr:443/resources/download/ibk.plist">
+			<img src="/resources/img/apple_down.png" width="200px">
+            </div>
+            </td>
+			</tr>
+			</table>
+			</center><br>
+		</div>
+</body>
+</html>
+<script type="text/javascript">
+var varUA = navigator.userAgent.toLowerCase(); //userAgent �� ���
+	
+if ( varUA.indexOf('android') > -1 ||  varUA.indexOf('samsung') > -1 ) {
+    //�ȵ���̵�
+    //alert(varUA + "111");
+    document.getElementById("apple").style.display="none";
+    document.getElementById("apple1").style.display="none";
+} else {
+	//alert(varUA + "222");
+	 document.getElementById("android").style.display="none";
+        document.getElementById("android1").style.display="none";
+}
+</script>

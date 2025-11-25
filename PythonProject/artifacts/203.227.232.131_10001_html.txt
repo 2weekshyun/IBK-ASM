@@ -1,0 +1,2190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache"/>
+	<meta http-equiv="Cache-Control" content="No-Cache"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi" />
+	<meta content="https://www.ibk.co.kr/img/logo800.png" property="og:image"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="naver-site-verification" content="9ee4ffff6e749c13cccd6329efb0b9778ea45806" />
+	<title>IBK기업은행</title> 
+	
+	<link rel="apple-touch-icon-precomposed"  href="/img/common/ic_bm_ios.png" />
+	<link rel="shortcut icon" href="/img/common/ibk.ico" type="image/x-icon" />
+	
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="/js/rwd/jquery-ui-1.10.3.custom.min.js"></script> 	
+	<script type="text/javascript" src="/js/modernizr.js"></script>
+	<script type="text/javascript" src="/js/jquery.cookie.js"></script> 
+	<script type='text/javascript' src="/js/rwd/rwd_default.js"></script> 
+	<script type="text/javascript" charset="utf-8" src="/js/ibkTag/tag_ibk.js"></script>
+ 
+	<link rel="stylesheet" type="text/css" href="/style/rwd/common.css" />
+	<link rel="stylesheet" type="text/css" href="/style/rwd/layout.css" /> 
+	<link rel="stylesheet" type="text/css" href="/style/rwd/main.css" />
+	<link rel="stylesheet" type="text/css" href="/style/rwd/main2023.css" /><!-- 2023 리뉴얼 css 추가 -->
+	
+	<script type="text/javascript" src="/js/rwd/default.js"></script> 
+	<script type="text/javascript" src="/js/rwd/rwd_ui_new.js"></script> 
+	<script type="text/javascript" src="/js/rwd/rwd_slider_main.js"></script>  
+
+<!-- obzen Tag Manager 250324 --> 
+	<script> 
+	try { 
+		window["_mtm"] = window["_mtm"] || []; 
+		_mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'}); 
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; 
+		g.async=true; g.src='https://log.ibk.co.kr/TagManager/obzen_cXN6LIVA.js'; 
+		if (s) s.parentNode.insertBefore(g,s); else { var p = document.querySelector('head') || document.querySelector('body'); if (p) { p.insertBefore(g, p.firstChild); } else { console.error("Initialize Failure [Obzen Tag manager]\nIncorrect HTML Structure."); } } 
+	} catch(e) { 
+		console.error("Initialize Failure [Obzen Tag manager]\n" + e); 
+	} 
+	</script> 
+<!-- End obzen Tag Manager --> 
+
+	 
+<script type="text/javascript">
+$(function(){
+	//뱅킹로그인
+	$('.banking_login li.banking').on('mouseover focusin', function(){
+		$('.login_menu').show();
+	}).on('mouseleave', function(){
+		$('.login_menu').hide();
+	});
+	$('.banking_login .login_menu li:last-child').on('focusout', function() {
+		$('.login_menu').hide();
+	});
+	$('.banking_login li.banking a').keydown(function(e){
+		if(e.keyCode == 9 && e.shiftKey) {
+			$('.login_menu').hide();
+		}
+	});
+
+	
+
+	// 모바일게시판 탭 접근성 적용
+	$('.mboard .tabmenu li[role="tab"]').on('click keydown', notiBoardTab);
+	function notiBoardTab(e){
+	var $eTarget = $(e.currentTarget);
+		var $targetPanel = $('[aria-labelledby="' + $eTarget.attr('id') + '"]');
+
+		if(e.type === 'click') {
+			$eTarget
+				.attr('aria-selected', true)
+				.addClass('active')
+				.siblings('[role="tab"]')
+				.attr('aria-selected', false)
+				.removeClass('active');
+			$targetPanel
+				.attr('aria-hidden', false)
+				.addClass('active')
+				.siblings('[role="tabpanel"]')
+				.attr('aria-hidden', true)
+				.removeClass('active');
+		} else if (e.type === 'keydown' && e.which === 13){
+			$(this).click();
+		}
+	}
+
+});
+</script>
+
+<script type="text/javascript">
+	var mainSlider;
+	var prdSlider;
+	var notifySlider;
+	var eventSlider;
+	var cgSlider;
+
+	$(function(){
+		//메인슬라이드
+		mainSlider = Slider();
+		mainSlider.initHandle({content:'mainSlider', subMotion:true, autoPlay:true, autoPlayTime:5000});
+
+		//추천상품 슬라이드
+		prdSlider = Slider();
+		prdSlider.initHandle({content:'prdSlider', subMotion:false, autoPlay:false, autoPlayTime:5000});
+
+		//이벤트 슬라이드
+		eventSlider = Slider();
+		eventSlider.initHandle({content:'eventSlider', subMotion:true, autoPlay:true, autoPlayTime:5000});
+		
+		//알림 슬라이드
+		notifySlider = Slider();
+		notifySlider.initHandle({content:'notifySlider', autoPlay:false});
+		
+		//창공 슬라이드
+		cgSlider = Slider();
+		cgSlider.initHandle({content:'cgSlider', autoPlay:false});
+
+		
+		var countSlider = setInterval(function(){
+			commSilder("mainSlider");
+			commSilder("prdSlider");
+			commSilder("eventSlider");
+			commSilder("cgSlider");
+		},30);
+
+	});
+
+	function commSilder(id){
+//			var totalNo = $('#'+id+'.visual-slider li').length;
+			var currentNo = $('#'+id+' .visual-slider li.active').attr('data-no');
+
+			//$('#'+id+' .visual-slider').attr('date-total-items', totalNo);
+			$('#'+id+' .visual-slider li').each(function(index, node){
+				$(node).attr('data-no', index + 1);
+			});
+			if(currentNo == "undefined" || currentNo == null) {
+				currentNo = 1;
+			}
+			$('#'+id+' .visual-slider-controller .count .now').html(currentNo);
+			//$('#'+id+' .visual-slider-controller .count .total').html(totalNo);
+	}
+	/*시작 20170206 플립 김종환 통합슬라이더 추가*/
+	/****************************************************************
+	*
+	* 통합슬라이더 20170203 플립 김종환
+	*
+	*****************************************************************/
+	var Slider = (function() {
+		var timeOut;
+		var op = {
+			init: false,
+			content: 'visual-slider',
+			slideTime: 600,
+			subMotion: false,
+			autoPlay: false,
+			autoPlayTime: 1000,
+			touching: false
+		}
+
+		var initHandle = function(option) {
+			$.extend(op, option);
+			op.con = $('#'+op.content);
+			op.slideCon = op.con.find('.visual-slider');
+			op.slide = op.con.find('.visual-slider > li');
+			op.slideLen = op.slide.length;
+			op.direction = op.con.find('.direction');
+			op.playNum = 0;
+			op.moing = false;
+			op.inter = null;
+			op.btnstart = op.direction.children('.slider-behavior'); 
+			op.slide.eq(0).children('p').eq(0).stop().fadeIn(1000);
+			op.slide.eq(0).children('p').eq(1).stop().delay(100).fadeIn(1000);
+			op.slide.eq(0).children('p').eq(2).stop().delay(200).fadeIn(1000);
+			op.slide.eq(0).children('a').stop().delay(300).fadeIn(1000);
+			op.pager = op.con.find('.visual-slider-nav');
+			op.init = true;
+			op.startX = 0;
+			op.startY = 0;
+			op.tstate = false;
+			op.mdirection = 'left';
+
+			//pager
+			var pagerEL = '';
+			var bannerTxt = '';
+			for(var i=0;i<op.slideLen;i++) {
+				if(i == 1){
+					bannerTxt = "두번째 배너";
+				}else if(i == 2){
+					bannerTxt = "세번째 배너";
+				}else if (i == 3){
+					bannerTxt = "네번째 배너";
+				}else if (i == 4){
+					bannerTxt = "다섯번째 배너";
+				}else{
+					bannerTxt = "첫번째 배너";
+				}
+
+				if(i==0) {
+					pagerEL += '<a href="#" class="on"><span class="blind">'+op.slide.eq(i).find('img').eq(0).attr('alt')+'<em>'+bannerTxt+'</em></span></a>';
+				}else{ 
+					pagerEL += '<a href="#"><span class="blind">'+op.slide.eq(i).find('img').eq(0).attr('alt')+'<em>'+bannerTxt+'</em></span></a>';
+				}
+			}
+
+			op.pager.append(pagerEL);
+
+			op.slide.eq(0).children('a').fadeIn(600);
+
+
+			if(op.slideLen<=1) return false;
+
+
+			//이벤트바인딩
+			eventHandle();
+
+			//자동슬라이드
+			if(op.autoPlay) autoSlideHandle();
+		};
+
+		var eventHandle = function() {
+			//자동슬라이더시 오버스탑
+			if(op.autoPlay) {
+				op.con.off().on('mouseenter mouseleave', function(e) {
+					if(e.type == 'mouseenter') {
+						autoSlideStopHandle();
+					}else{
+						autoSlideHandle();
+					}
+				});
+
+				//자동슬라이더 버튼
+				op.btnstart.off().on('click', function(e) {
+					e.preventDefault();
+					var _this = $(this);
+					if(_this.is('.slider-start')) {
+						_this.removeClass('slider-start').addClass('slider-stop');
+						_this.children('.blind').text('정지');
+						autoSlideHandle();
+					}else{
+						_this.removeClass('slider-stop').addClass('slider-start');
+						_this.children('.blind').text('재생');
+						autoSlideStopHandle();
+					}
+				});
+			}
+
+
+			if($('html').is('.touch')) {
+				op.slideCon.on('touchstart', function(e){
+					//e.preventDefault();
+					var orig = e.originalEvent;
+					autoSlideStopHandle();
+					op.startX = orig.changedTouches[0].pageX;
+					op.startY = orig.changedTouches[0].pageY;
+				});
+				op.slideCon.on('touchmove', function(e){
+					var orig = e.originalEvent;
+					var moveX = orig.changedTouches[0].pageX;
+					var moveY = orig.changedTouches[0].pageY;
+					var xMovement = Math.abs(moveX - op.startX);
+					var yMovement = Math.abs(moveY - op.startY);
+					if(xMovement > yMovement){
+						e.preventDefault();
+						if(op.startX > moveX) op.mdirection = 'left';
+						else op.mdirection = 'right';
+						op.touching = true;
+					}
+				});
+				op.slideCon.on('touchend', function(e){
+					if(op.touching) {
+						op.touching = false;
+						autoSlideHandle();
+						if(op.mdirection == 'left') {
+							op.playNum++;
+							if(op.playNum > op.slideLen-1) op.playNum = 0;
+						}else{
+							op.playNum--;
+							if(op.playNum < 0) op.playNum = op.slideLen-1;
+						}
+						actionHandle(op.mdirection);
+					}
+				});
+			}
+
+			//좌우버튼
+			op.direction.find('a.slider-arrow').off().on('click', function(e) {
+				e.preventDefault();
+				if(op.moing) return false;
+				var _this = $(this);
+				if(_this.is('.next')) {
+					op.playNum++;
+					if(op.playNum > op.slideLen-1) op.playNum = 0;
+					actionHandle('left');
+				}else{
+					op.playNum--;
+					if(op.playNum < 0) op.playNum = op.slideLen-1;
+					actionHandle('right');
+				}
+			});
+
+			//pager
+			op.pager.find('a').off().on('click', function(e) {
+				e.preventDefault();
+				if(op.moing) return false; //20170307 플립 김종환 페이저 모션중 클릭방지
+				op.playNum = $(this).index();
+				actionHandle('left');
+
+			});
+		};
+		var actionHandle = function(d) {
+			if(op.moing) return false;
+			var dr = 'right';
+			if(d == 'right') dr = 'left';
+			op.moing = true;
+			op.slide.filter(':visible').stop().hide('slide', {direction:d}, function(){
+				op.moing = false;
+				if(op.subMotion)  $(this).children().hide();		
+				$(this).removeClass('active');
+
+
+			}, op.slideTime, 'easeInOutExpo').end().eq(op.playNum).stop().show('slide', {direction:dr}, function(){
+					op.moing = false;
+					if(op.subMotion) {
+						$(this).children('p').eq(0).stop().fadeIn(1000);
+						$(this).children('p').eq(1).stop().delay(100).fadeIn(1000);
+						$(this).children('p').eq(2).stop().delay(200).fadeIn(1000);
+						$(this).children('a').stop().delay(300).fadeIn(1000);
+					}
+					$(this).addClass('active');
+				}, op.slideTime, 'easeInOutExpo');
+
+			if(op.subMotion) {
+				op.con.stop().animate({backgroundColor:op.slide.eq(op.playNum).data('bgcolor')}, 300);
+			}
+			//pager
+			op.con.find('.visual-slider-nav a.on').removeClass('on').children('span');
+			op.con.find('.visual-slider-nav a:eq('+op.playNum+')').addClass('on').children('span');
+		};
+
+		var autoSlideHandle = function() {
+			if(!op.init) return false;
+			if(!op.autoPlay) return false;
+			if(op.inter != null) return false;
+			if(op.btnstart.is('.slider-start')) return false;
+			op.inter = setInterval(function() {
+				op.playNum++;
+				if(op.playNum > op.slideLen-1) op.playNum = 0;
+				actionHandle('left');
+			}, op.autoPlayTime);
+
+		};
+		var autoSlideStopHandle = function() {
+			if(!op.init) return false;
+			clearInterval(op.inter);
+			op.inter = null;
+		};
+		return {
+			initHandle : initHandle,
+			autoSlideHandle : autoSlideHandle,
+			autoSlideStopHandle : autoSlideStopHandle
+		}
+	});
+	/*끝 20170206 플립 김종환*/		
+</script>
+
+</head>
+
+<body id="main"> 
+
+<iframe id="check_app" name="check_app" src="" scrolling="no" title="사용자 환경 체크 프레임" style="visibility:hidden;position:absolute;width:0;height:0;" ></iframe>
+
+<!-- skip menu -->
+<ul class="skiplist">
+	<li class="skip"><a href="#main_ct">본문내용으로 바로가기</a></li>
+	<li class="skip"><a href="#gnb_menu">주메뉴 바로가기</a></li>
+</ul>
+<!-- //skip menu --> 
+
+<!-- //top noti -->
+<form name="hiddenForm" action=""method="post" >
+	<input type="hidden" name="return_url" />
+</form>
+
+<div id="wrapper" class="ibk_main">
+	<!-- header -->
+	<div id="header">
+		<!-- gnb -->
+		<div id="gnb" class="main_gnb">
+			<div class="gnb_wrap"> 
+                <h1>
+					<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_LOGO\' ); }catch(_e){ }');" href="index.html"><span id="img_change"><img src="/img/navigation/h1_logo_sub.gif" alt="IBK기업은행" style="" /></span></a>
+				</h1>
+				<div class="gnb_util">
+					<ul class="util">
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_보안센터\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/safe/safe_main.jsp&amp;pageId=SC00000000"><img src="/img/navigation/gnb_util01.gif" alt="금융사기예방센터" /><span>금융사기예방센터</span></a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_고객센터\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/customer/main.jsp&amp;pageId=CM00000000"><img src="/img/navigation/gnb_util02.gif" alt="고객센터" /><span>고객<br />센터</span></a></li>
+						<li class="mdn"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_마이페이지\' ); }catch(_e){ }');" href="/myinfo/mypageInfo.ibk?pageId=MY01010000"><img src="/img/navigation/gnb_util_mypage.gif" alt="마이페이지" /><span>마이페이지</span></a></li>
+						<li class="mdn"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_정보공개\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/intro/public/information/information_01.jsp&amp;pageId=IR07030100"><img src="/img/navigation/gnb_util_dataopen.gif" alt="정보공개" /></a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_은행소개\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/intro/sub_main.jsp"><img src="/img/navigation/gnb_util03.gif" alt="은행소개" /><span>은행<br />소개</span></a></li>
+						<li class="mdn"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_IR\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/intro/ir/shareholder_status.jsp&pageId=IR05010100"><img src="/img/navigation/gnb_util04.gif" alt="IR" /><span>IR</span></a></li>
+						<li>
+						<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_영업점안내\' ); }catch(_e){ }');" href="javascript:void(window.open('https://kiupbank.ttmap.co.kr','chzero','width=960,height=700,resizable=no,scrollbars=yes'));" title="새창열림">
+								<img src="/img/navigation/gnb_util05.gif" alt="영업점안내" />
+								<span>영업점<br />안내</span>
+							</a>
+						</li>
+					</ul>
+					<div class="language">
+						<a href="https://global.ibk.co.kr" target="_blank" title="새창열림"><img src="/img/navigation/gnb_util06.gif" alt="Global" /></a>
+						 
+					</div>
+					
+					 <div class="gnb_search" id="searchdiv">
+						<form action="/jsp/search/search.jsp" name="search_Action" method="get">
+							<input type="text" id="equery" name="equery" class="word" title="검색어 입력" />
+							<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_통합검색\' ); }catch(_e){ }');" href="javascript:document.search_Action.submit();" class="search_btn">
+								<img src="/img/navigation/bg_ic_gnb_util.gif" alt="검색" />
+							</a>
+						</form>
+					</div>
+					
+				</div>
+
+				<div class="gnb_menu" id="gnb_menu">
+					<ul>
+						<li class="privacy_bank">
+							<div class="drop_down">
+								<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹\' ); }catch(_e){ }');" href="javascript:bankingLogin('G');"><img src="/img/navigation/gnb_privacy.gif" alt="개인뱅킹" /></a>
+								<ul>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_상품몰\' ); }catch(_e){ }');" href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr00/ntr0000/PNTR000000_i.jsp?_linkFrmChk=Y">상품몰</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_조회\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/CINQ101000_i.jsp&amp;scriptYN=Y">조회</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_이체\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/trn/trn10/trn1010/PTRN101000_i.jsp&amp;scriptYN=Y">이체</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_공과금\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/tax/tax10/tax1010/CTAX101000_i.jsp&amp;scriptYN=Y">공과금</a></li>									
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_예금/신탁\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1060/CINQ106000_i.jsp&amp;scriptYN=Y">예금/신탁</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_펀드\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1055/CINQ105500_i.jsp&amp;scriptYN=Y">펀드</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_대출\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/lon/lon10/lon1010/CLON101000_i.jsp&amp;scriptYN=Y">대출</a></li>									
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_신용카드\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/crd/crd10/crd1010/CCRD101000_i.jsp&amp;scriptYN=Y">카드</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_외환\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/guest/fxd/fxd00/fxd0000/PFXD000000_i.jsp&amp;scriptYN=Y">외환</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_보험\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1065/CINQ106500_i.jsp&amp;scriptYN=Y">보험</a></li>									
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_퇴직연금\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/rtp/rtp20/rtp2010/PRTP201000_i.jsp&amp;scriptYN=Y">퇴직연금</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_수표어음\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/ebl/ebl10/ebl1010/CEBL101000_i.jsp&amp;scriptYN=Y">수표/어음</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹_뱅킹관리\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/guest/imn/imn00/imn0000/PIMN000000_i.jsp&amp;scriptYN=Y">뱅킹관리</a></li>
+								</ul>
+							</div>
+						</li>
+						<!-- index 화면 내 intro top 기업뱅킹 > 순서 변경. 2022-11-01-->
+						<!-- intro top > 기업뱅킹 start -->
+						<li class="company_bank">
+							<div class="drop_down">
+								<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹\' ); }catch(_e){ }');" href="javascript:bankingLogin('H');"><img src="/img/navigation/gnb_company.gif" alt="기업뱅킹" /></a>
+								<ul>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_조회\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/CINQ101000_i.jsp?APLY_EFNC_MENU_ID=E0102010000&amp;SCRE_ID=CINQ101000_i&amp;MENU_DIV=GNB&amp;TAB_MENU_ID=CBST0102011&amp;chkMenuId=Y">조회</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_이체\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/trn/trn10/trn1010/ETRN101000_i.jsp?APLY_EFNC_MENU_ID=E0201010000&amp;SCRE_ID=ETRN101000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">이체</a></li>	
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_신용카드\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/crd/crd35/crd3525/CCRD352500_i.jsp?APLY_EFNC_MENU_ID=E0504030000&amp;SCRE_ID=CCRD352500_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">카드</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_대출\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/lon/lon10/lon1010/CLON101000_i.jsp?APLY_EFNC_MENU_ID=E0601010000&amp;SCRE_ID=CLON101000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">대출</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_예금/신탁\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/ntr/ntr25/ntr2510/ENTR251000_i.jsp?APLY_EFNC_MENU_ID=E0807010000&amp;SCRE_ID=ENTR251000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">예금/신탁</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_펀드\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/EINQ103000_i.jsp?APLY_EFNC_MENU_ID=E0902010000&amp;SCRE_ID=EINQ103000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">펀드</a></li>			
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_공과금\' ); }catch(_e){ }');" href="https://kiup.ibk.co.kr/uib/jsp/online/tax/tax10/tax1020/CTAX102000_i.jsp?APLY_EFNC_MENU_ID=E0401040000&amp;SCRE_ID=CTAX102000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">공과금</a></li>									
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_외환\' ); }catch(_e){ }');" href="https://kiup.ibk.co.kr/uib/jsp/guest/fxd/fxd10/EFXD101000_m.jsp?APLY_EFNC_MENU_ID=E0700000000&amp;SCRE_ID=EFXD101000_m&amp;MENU_DIV=GNB">외환</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_퇴직연금\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/rpm/rpm10/rpm1010/CRPM101000_i.jsp?APLY_EFNC_MENU_ID=E1001010000&amp;SCRE_ID=CRPM101000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">퇴직연금</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_B2B전자결제\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/b2b/b2b10/b2b1010/b2b101010/EB2B101010_p.jsp?APLY_EFNC_MENU_ID=E0301020000&amp;SCRE_ID=EB2B101010_p&amp;MENU_DIV=GNB&amp;chkMenuId=Y">B2B</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_상품몰\' ); }catch(_e){ }');" href="https://kiup.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/ENTR701000_m.jsp?APLY_EFNC_MENU_ID=E0001010000&amp;SCRE_ID=ENTR701000_m&amp;MENU_DIV=GNB">금융상품</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_증명서/기업지원\' ); }catch(_e){ }');" href="https://kiup.ibk.co.kr/uib/jsp/guest/ads/ads10/EADS100000_i.jsp?APLY_EFNC_MENU_ID=E3100000000&amp;SCRE_ID=EADS100000_i&amp;MENU_DIV=GN">경영지원</a></li> 
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹_뱅킹관리\' ); }catch(_e){ }');" href="https://kiup.ibk.co.kr/uib/jsp/guest/ens/ens20/EENS102000_m.jsp?APLY_EFNC_MENU_ID=E1300000000&SCRE_ID=EENS102000_m&MENU_DIV=GNB">뱅킹관리</a></li> 
+								</ul>
+							</div>
+						</li>
+						<!-- intro top > 기업뱅킹 stop -->
+						<li class="mall pos01">
+							<div class="drop_down">
+								<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융상품\' ); }catch(_e){ }');" href="#" onclick="checkmob('A');"><img src="/img/navigation/gnb_product.gif" alt="금융상품" /></a>
+								<ul>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융상품_개인상품몰\' ); }catch(_e){ }');" href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr00/ntr0000/PNTR000000_i.jsp?_linkFrmChk=Y">개인상품몰</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융상품_기업상품몰\' ); }catch(_e){ }');" href="https://kiup.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7000/ENTR700000_m.jsp?_linkFrmChk=Y">기업상품몰</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융상품_상품가이드\' ); }catch(_e){ }');" href="/depo/coBondIRate.ibk?pageId=FM04010100">상품가이드</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융상품_상품트리\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/mallbiz/prdTree/prdTreeQnA.jsp&pageId=FM09010000">상품트리</a></li>								
+								</ul>
+							</div>
+						</li>
+						<li class="service pos02">
+							<div class="drop_down">
+								<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/mobileb/smart_service_main.jsp">
+									<img src="/img/navigation/gnb_service.gif" alt="금융서비스" />
+								</a>
+								<ul>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스_스마트금융\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/mobileb/one_bank.jsp&amp;pageId=SM01090000">스마트금융</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스_뱅킹서비스\' ); }catch(_e){ }');" href="/common/navigation.ibk?pageId=SM02080200&amp;linkUrl=/financetech/efinance/teleb/privacy_info.jsp">뱅킹서비스</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스_상품서비스\' ); }catch(_e){ }');" href="/fxtr/excRateList.ibk?pageId=SM03020100">상품서비스</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스_제휴서비스\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/coop/samsung_pay.jsp&amp;pageId=SM04110000">제휴서비스</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스_부가서비스\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/customer/special/vip.jsp&amp;pageId=SM06010000">고객우대서비스</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스_부가서비스\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/fintech/fintech_solution.jsp&amp;pageId=SM05100100">부가서비스</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="info pos03">
+							<div class="drop_down">
+								<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융정보\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/finance_main.jsp"><img src="/img/navigation/gnb_info.gif" alt="금융정보" /></a>
+								<ul>
+								<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융정보_톡(Talk)!\' ); }catch(_e){ }');" href="/cyber/printListCyber.ibk?pageId=SI01010000&category=11">금융정보 톡(Talk)!</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융정보_기업경영지원\' ); }catch(_e){ }');" href="/enterprise/NavEnterprise.ibk">기업경영지원</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_법률지원(법무부)\' ); }catch(_e){ }');" href="/common/navigation.ibk?pageId=SI03010000&linkUrl=/finance_info/law_counsel_9988.jsp">법률지원<br>(법무부)</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융정보_증권\' ); }catch(_e){ }');" href="/common/navigation.ibk?pageId=SI04010100&linkUrl=/common/cp/cp_loader.jsp&cpUrl=https://ir.gsifn.io/ibk/ir3_current2.html?koreng=1">증권</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융정보_부동산\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/individual/immove/InternetInfo.jsp&pageId=SI05010100">부동산</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융정보_공매경매\' ); }catch(_e){ }');" href="/common/navigation.ibk?pageId=SI06010100&linkUrl=/common/cp/cp_loader.jsp&cpUrl=https://www.ggi.co.kr/othersite/ibk/sojae_search.asp">경매/공매</a></li>
+									
+
+								</ul>
+							</div>
+						</li>
+						<li class="card">
+							<div class="drop_down">
+								<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드\' ); }catch(_e){ }');" href="/card/mainList.ibk"><img src="/img/navigation/gnb_card.gif" alt="카드" /></a>
+								<ul>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드_카드안내신청\' ); }catch(_e){ }');" href="/cardbiz/listBizNew.ibk?pageId=CA01010000">카드안내/신청</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드_카드금융대출\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/mall/card/basicdata/cash_basicdata.jsp&pageId=CA05010400">카드금융(대출)</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드_나의카드관리\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/mall/card/mycard_info.jsp&amp;pageId=CA02010000">나의카드관리</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드_카드서비스\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/mall/card/fee/lifecashback_fee.jsp&amp;pageId=CA03020000">개인카드서비스</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드_혜택우대\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/mall/card/fee/public_security_office.jsp&amp;pageId=CA04070000">기업카드서비스</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드_카드가이드\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/mall/card/basicdata/caution1_basicdata.jsp&amp;pageId=CA05040100">카드가이드</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+
+					<div class="all_menu">
+						<a href="javascript:;" class="click"><img src="/img/navigation/gnb_all_menu.gif" alt="전체메뉴" /></a>
+					</div>
+				</div>
+				
+			</div>  
+			
+			<!-- 전체메뉴/모바일메뉴 --> 
+			<div class="ctg_wrap">
+				<a href="#" class="btn_ctg"><span>메뉴 열기</span></a>
+				<div class="ctg_cont">
+					<div class="ctg_top">
+						<div class="ctg_util">
+							<ul class="util">
+								<li class="secur"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_보안센터\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/safe/safe_main.jsp&amp;pageId=SC00000000"><img src="/img/navigation/gnb_util01.gif" alt="금융사기예방센터" /><span>금융사기예방센터</span></a></li>
+								<li class="custom"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_고객센터\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/customer/main.jsp&amp;pageId=CM00000000"><img src="/img/navigation/gnb_util02.gif" alt="고객센터" /><span>고객<br />센터</span></a></li>
+								<li class="mdn"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_마이페이지\' ); }catch(_e){ }');" href="/myinfo/mypageInfo.ibk?pageId=MY01010000"><img src="/img/navigation/gnb_util_mypage.gif" alt="마이페이지" /><span>마이페이지</span></a></li>
+								<li class="mdn"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_정보공개\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/intro/public/information/information_01.jsp&amp;pageId=IR07030100"><img src="/img/navigation/gnb_util_dataopen.gif" alt="정부3.0 정보공개" /></a></li>
+								<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_은행소개\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/intro/sub_main.jsp"><img src="/img/navigation/gnb_util03.gif" alt="은행소개" /><span>은행<br />소개</span></a></li> 								
+								<li class="mdn"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_IR\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/intro/ir/ir_stock_today.jsp&pageId=IR05010100"><img src="/img/navigation/gnb_util04.gif" alt="IR" /><span>IR</span></a></li>
+								<li>
+									<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_영업점안내\' ); }catch(_e){ }');" title="새창열림" href="https://kiupbank.ttmap.co.kr/mobile/main.jsp" target="_blank">
+										<img src="/img/navigation/gnb_util05.gif" alt="영업점안내" />
+										<span>영업점<br />안내</span>
+									</a>
+								</li>
+								<li>
+									<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_GLOBAL\' ); }catch(_e){ }');" title="새창열림" href="https://global.ibk.co.kr" target="_blank">
+										<img src="/img/navigation/gnb_util06.gif" alt="Global" />
+										<span class="pt20">Global</span>
+									</a>
+								</li>
+							</ul> 
+						</div>
+						<a href="#" class="btn_ctg_sch">검색 열기</a>
+						<div class="ctg_sch" style="display:none">
+							<div class="gnb_search">
+								<form action="/jsp/search/search.jsp" name="search_Action_mobile" method="get">
+									<input type="text" id="m_equery" name="equery" placeholder="검색어를 입력해주세요" class="word" title="검색어 입력" />
+									<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_UTIL_통합검색\' ); }catch(_e){ }');" href="javascript:document.search_Action_mobile.submit();" class="search_btn">
+										<img src="/img/navigation/bg_ic_gnb_util.gif" alt="검색" />
+									</a>
+								</form>
+							</div> 
+							<a href="#" class="ctg_sch_close"><span class="hidden">검색</span>닫기</a>
+						</div>
+						<a href="#" class="btn_ctg_close"><span class="hidden">메뉴</span><span>닫기</span></a>
+								
+					</div>
+					<div class="ctg_tit">
+						<p>IBK기업은행</p>
+						<a href="#" class="more off">이전메뉴</a>
+						<!-- //메뉴사용시 : off 탈락 -->
+					</div>
+					<div class="all_menu_wrap">
+						<div class="menu_view ctg_menu">
+						<!-- 모바일 스크롤 생성 위치 -->
+							
+							<div class="ctg_depth">
+							<!-- // -->
+								<ul class="ctg_root">
+									<li class="link"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_개인뱅킹\' ); }catch(_e){ }');" href="javascript:bankingLogin('G');">개인뱅킹</a></li>
+									<li class="link"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_기업뱅킹\' ); }catch(_e){ }');" href="javascript:bankingLogin('H');">기업뱅킹</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융상품\' ); }catch(_e){ }');" href="javascript:;" data-link="mall">금융상품</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융서비스\' ); }catch(_e){ }');" href="javascript:;" data-link="service">금융서비스</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_금융정보\' ); }catch(_e){ }');" href="javascript:;" data-link="info">금융정보</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_카드\' ); }catch(_e){ }');" href="javascript:;" data-link="card">카드</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_고객센터\' ); }catch(_e){ }');" href="javascript:;" data-link="cscenter">고객센터</a></li>
+									<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_GNB_보안센터\' ); }catch(_e){ }');" href="javascript:;" data-link="secure">금융사기예방센터</a></li>
+								</ul>
+								<dl class="pbank">
+									<dt>개인뱅킹</dt>
+									<dd>  
+										<ul class="ctg_d1">
+											<li><a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr00/ntr0000/PNTR000000_i.jsp?APLY_EFNC_MENU_ID=P0100000000&SCRE_ID=PNTR000000_i&MENU_DIV=GNB">상품몰</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/CINQ101000_i.jsp&amp;scriptYN=Y">조회</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/trn/trn10/trn1010/PTRN101000_i.jsp&amp;scriptYN=Y">이체</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/tax/tax10/tax1010/CTAX101000_i.jsp&amp;scriptYN=Y">공과금</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1060/CINQ106000_i.jsp&amp;scriptYN=Y">예금/신탁</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1055/CINQ105500_i.jsp&amp;scriptYN=Y">펀드</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/lon/lon10/lon1010/CLON101000_i.jsp&amp;scriptYN=Y">대출</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/crd/crd10/crd1010/CCRD101000_i.jsp&amp;scriptYN=Y">카드</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/guest/fxd/fxd00/fxd0000/PFXD000000_i.jsp&amp;scriptYN=Y">외환</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1065/CINQ106500_i.jsp&amp;scriptYN=Y">보험</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/rtp/rtp20/rtp2010/PRTP201000_i.jsp&amp;scriptYN=Y">퇴직연금</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/ebl/ebl10/ebl1010/CEBL101000_i.jsp&amp;scriptYN=Y">수표/어음</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/guest/imn/imn00/imn0000/PIMN000000_i.jsp&amp;scriptYN=Y" >뱅킹관리</a></li>
+										</ul>									
+									</dd>
+								</dl>
+								<!-- index 화면 내 전체메뉴 > 기업뱅킹 > 순서 변경. 2022-11-01-->
+								<!-- 전체메뉴 > 기업뱅킹 start -->
+								<dl class="cbank">
+									<dt>기업뱅킹</dt>
+									<dd> 
+										<ul class="ctg_d1">
+											<li><a href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/CINQ101000_i.jsp?APLY_EFNC_MENU_ID=E0102010000&amp;SCRE_ID=CINQ101000_i&amp;MENU_DIV=GNB&amp;TAB_MENU_ID=CBST0102011&amp;chkMenuId=Y">조회</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/trn/trn10/trn1010/ETRN101000_i.jsp?APLY_EFNC_MENU_ID=E0201010000&amp;SCRE_ID=ETRN101000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">이체</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/crd/crd35/crd3525/CCRD352500_i.jsp?APLY_EFNC_MENU_ID=E0504030000&amp;SCRE_ID=CCRD352500_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">카드</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/lon/lon10/lon1010/CLON101000_i.jsp?APLY_EFNC_MENU_ID=E0601010000&amp;SCRE_ID=CLON101000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">대출</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/ntr/ntr25/ntr2510/ENTR251000_i.jsp?APLY_EFNC_MENU_ID=E0807010000&amp;SCRE_ID=ENTR251000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">예금/신탁</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/EINQ103000_i.jsp?APLY_EFNC_MENU_ID=E0902010000&amp;SCRE_ID=EINQ103000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">펀드</a></li>
+											<li><a href="https://kiup.ibk.co.kr/uib/jsp/online/tax/tax10/tax1020/CTAX102000_i.jsp?APLY_EFNC_MENU_ID=E0401040000&amp;SCRE_ID=CTAX102000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">공과금</a></li>
+											<li><a href="https://kiup.ibk.co.kr/uib/jsp/guest/fxd/fxd10/EFXD101000_m.jsp?APLY_EFNC_MENU_ID=E0700000000&amp;SCRE_ID=EFXD101000_m&amp;MENU_DIV=GNB">외환</a></li>
+											<li><a href="https://kiup.ibk.co.kr/uib/jsp/online/rpm/rpm10/rpm1010/CRPM101000_i.jsp?APLY_EFNC_MENU_ID=E1001010000&amp;SCRE_ID=CRPM101000_i&amp;MENU_DIV=GNB&amp;chkMenuId=Y">퇴직연금</a></li>
+											<li><a href="/bank_bridge.jsp?bankURL=https://kiup.ibk.co.kr/uib/jsp/online/b2b/b2b10/b2b1010/b2b101010/EB2B101010_p.jsp?APLY_EFNC_MENU_ID=E0301020000&amp;SCRE_ID=EB2B101010_p&amp;MENU_DIV=GNB&amp;chkMenuId=Y">B2B</a></li>
+											<li><a href="https://kiup.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/ENTR701000_m.jsp?APLY_EFNC_MENU_ID=E0001010000&amp;SCRE_ID=ENTR701000_m&amp;MENU_DIV=GNB">금융상품</a></li>
+											<li><a href="https://kiup.ibk.co.kr/uib/jsp/guest/ads/ads10/EADS100000_i.jsp?APLY_EFNC_MENU_ID=E3100000000&amp;SCRE_ID=EADS100000_i&amp;MENU_DIV=GNB">경영지원</a></li>
+											<li><a href="https://kiup.ibk.co.kr/uib/jsp/guest/ens/ens20/EENS102000_m.jsp?APLY_EFNC_MENU_ID=E1300000000&SCRE_ID=EENS102000_m&MENU_DIV=GNB">뱅킹관리</a></li>
+										</ul>
+									</dd>
+								</dl>
+								<!-- 전체메뉴 > 기업뱅킹 stop -->
+							<!-- // -->	
+							</div>
+							<!-- 전체 메뉴 닫기버튼 위치변경 - 20160323 -->
+							<a href="javascript:;" class="list_close"><img src="/img/navigation/btn_close.gif" alt="전체메뉴" /><span>닫기</span></a>
+						 
+						</div>
+					</div>
+				</div>
+			</div>   
+			<!-- //전체메뉴/모바일메뉴 -->
+
+  
+
+		</div>
+		<!-- //gnb --> 
+	</div>
+	<!-- //header -->
+	
+	<hr /> 
+
+	<!-- 메인 컨텐츠 -->
+	<div id="main_ct" class="main_contents">
+		<!-- 메인 슬라이드 -->
+		<div class="main_visual_wrap">
+			<div class="visual_inner">
+				<div class="banking_login">
+					<ul>
+						<li class="banking"><a href="javascript:bankingLogin('MAIN');" id="mainlogin"><span>뱅킹로그인</span></a>
+							<ul class="login_menu">
+								<li><a href="javascript:bankingLogin('A_mybank');">개인뱅킹</a></li>
+								<li><a href="javascript:bankingLogin('A_kiup');" >기업뱅킹</a></li>
+							</ul>
+						</li>
+						<li class="auth_center"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_공인인증센터\' ); }catch(_e){ }');" href="javascript:bankingLogin('B');"><span>인증센터</span></a></li>
+					</ul>
+				</div>
+				<div class="slider-wrap" id="mainSlider">
+					<ul class="visual-slider">
+						
+			
+	                	<li>
+								<p class="sub_tit">안전한 금융거래의 열쇠</p>
+								<p class="main_tit"><strong class="mo_br">IBK 인증서 출시</strong></p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="https://mybank.ibk.co.kr/uib/jsp/guest/ids/ids00/ids0000/CIDS000000_i.jsp">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_01_250704.png" alt=""></div>
+						</li>
+
+						<li>
+								<p class="sub_tit">사장님을 위한 대출 지름길</p>
+								<p class="main_tit"><strong class="mo_br">대출통로BOX</strong></p>
+								<p class="sub_desc">기업은행 담당자와</br>대출 상담 연결!</p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="http://ibk.kr/7rbcP5">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_02_250710.png" alt=""></div>
+						</li>
+
+						<li>
+							    <p class="sub_tit"></p>
+								<p class="main_tit"><strong class="mo_br">기업의 사명과 함께하는 IBK기업은행</strong></p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="https://www.youtube.com/embed/m-6bxDkrJvE">영상 보러가기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_03_250725.png" alt=""></div>
+						</li>
+
+
+<!--
+
+						<li>
+								<p class="sub_tit">주말에도 공휴일에도 실시간 입금</p>
+								<p class="main_tit"><strong class="mo_br">카드매출 바로입금</strong><br/>서비스</p>
+								<p class="sub_desc">IBK기업은행 입출금통장만 있다면</br>당일 카드매출 바로 입금!</p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="https://pos.ibkbox.net/scfJoin/intro.do">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_01_241125.png" alt=""></div>
+						</li>
+
+			<li>
+								<p class="sub_tit">IBK기업은행 신규 TV-CF</p>
+								<p class="main_tit">세상을 바꾼 <strong>위대한 기업</strong></p>
+								<p class="sub_desc">사람들은 세상이 바뀌었다 말하지만<br/>그 세상을 바꾼 것은 기업입니다.<br/>대한민국의 멈추지 않은 위대한 기업,<br/>그옆에. IBK 기업은행.</p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="https://www.youtube.com/embed/9NPR4I_nKTo">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_03_241212.png" alt=""></div>
+						</li>
+
+						<li>
+								<p class="sub_tit">더 쉽고, 편리하고, 안전하게 인증하는</p>
+								<p class="main_tit"><strong class="mo_br">IBK디지털인증서비스</strong></p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="https://youtu.be/Z8lgvtFF9k4">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_01_240603.png" alt=""></div>
+						</li>
+
+						<li>
+								<p class="sub_tit">급여고객을 위한 프리미엄 혜택관</p>
+								<p class="main_tit"><strong>IBK</strong>급여라운지</p>
+								<p class="sub_desc">매월 급여실적에 따라 스탬프 적립 및 경품이벤트 맞춤형 급여 정보를 제공합니다.</p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="/common/navigation.ibk?linkUrl=/financetech/efinance/fintech/pay_lounge.jsp&pageId=SM05160000">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_02.png" alt=""></div>
+						</li>
+						
+						<li>
+								<p class="sub_tit">기업대출의 문턱을 확 낮춘</p>
+								<p class="main_tit"><strong class="mo_br">대출통로BOX</strong></p>
+								<p class="sub_desc">개인사업자, 법인사업자 누구나!</br>영업점 방문 없이 대출을 신청해보세요!</p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="https://365.ibkbox.net">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_01_240226.png" alt=""></div>
+						</li>
+						<li>
+								<p class="sub_tit">기본에 충실한 지속 가능 경영</p>
+								<p class="main_tit"><strong>ESG</strong>경영</p>
+								<p class="sub_desc">정책금융 기관이자 기업시민으로서 사회적 기대에 부응하고 주어진 역할에 책임을 다하기 위해 다양한 ESG활동에 주도적으로 참여하고 있습니다.</p>
+							<a class="btn_go_view" target="_blank" title="새창열림" href="/common/navigation.ibk?linkUrl=/intro/contrib/esgSrtg01.jsp&pageId=IR06010100">자세히보기</a>
+							<div class="main_vi_img"><img src="/img/main2023/bg_main_slide_03.png" alt=""></div>
+						</li>-->
+					</ul>
+					<div class="visual-slider-controller direction">
+						<div class="count"><span class="now"></span> <span>/</span> <span class="total">3</span></div>
+						<a href="#" class="slider-arrow slider-prev prev"><span class="blind">이전 슬라이드</span></a>
+						<a href="#" class="slider-arrow slider-next next"><span class="blind">다음 슬라이드</span></a>
+						<a href="#" class="slider-behavior slider-stop"><span class="blind">정지</span></a>
+					</div>
+					<div class="sub-slider-nav visual-slider-nav"></div> 
+				</div>
+			</div>
+		</div>
+		<!-- //메인 슬라이드 -->
+
+	    <!-- 주요서비스 -->
+		<div class="main_service_menu">
+			<h2 class="blind">주요 서비스 바로가기</h2>
+			<ul>
+				<!-- 2025.03.20 수정 시작 -->
+				<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_계좌조회\' ); }catch(_e){ }');" href="javascript:bankingLogin('C');"  title="새창열림">계좌조회</a></li>
+				<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_환율조회\' ); }catch(_e){ }');" href="/fxtr/excRateList.ibk?pageId=SM03020100" title="선택됨">환율조회</a></li>	<!-- title 속성 추가 -->
+				<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_카드조회\' ); }catch(_e){ }');" href="javascript:bankingLogin('D');" title="새창열림">카드조회</a></li> <!-- title 중복 속성 제거 -->
+				<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_카드등록\' ); }catch(_e){ }');" href="javascript:bankingLogin('I');" title="새창열림" >카드등록</a></li>
+				<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_소비자포털민원\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/customer/counsel/minwon_01.jsp&pageId=CM01080100" title="선택됨">소비자포털/민원</a></li> <!-- title 값 내 문구 수정 -->
+				<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_상품공시실\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/customer/disclosure/disclosure_info.jsp&amp;pageId=CM01030200" title="선택됨">상품공시실/약관</a></li> <!--title 값 내 문구 수정 -->
+				<!-- // 2025.03.20 수정 끝 -->
+			</ul>
+		</div>
+		<!-- //주요서비스 -->
+
+		<!-- 서비스영역 -->
+		<div class="service_contents">
+			<div class="service_contents_inner">
+				<!-- 추천상품 -->
+				<div class="bx_cont prd">
+					<h3>추천상품</h3>
+					<div class="prd_slider_wrap slider-wrap" id="prdSlider">
+						<ul class="visual-slider">
+							
+                        	<li>
+								<a href="https://kiup.ibk.co.kr/uib/jsp/guest/bnc/bnc50/bnc5010/EBNC501000_i.jsp?APLY_EFNC_MENU_ID=E0807050100&SCRE_ID=EBNC50501000_i&MENU_DIV=GNB">
+									<p class="tit">노란우산</p>
+									<div class="img_area"><img src="/img/main2023/img_prd_recom_03_250825.png" alt=""></div>
+									<p class="sub_txt">사장님을 위한 절세 상품</p>
+								</a>
+							</li>
+
+							<li>
+								<a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=11&tmcd=102&pdcd=0007">
+									<p class="tit">머니박스</p>
+									<div class="img_area"><img src="/img/main2023/img_prd_recom_03_240701.png" alt=""></div>
+									<p class="sub_txt">하루만 보관해도 이자가 쌓이는<br>선착순 10만좌 한정</p>
+								</a>
+							</li>
+
+							<li>
+								<a href="http://ibk.kr/fzsUvO">
+									<p class="tit">IBK 내뜻대로 유언대용신탁</p>
+									<div class="img_area"><img src="/img/main2023/img_prd_recom_03_240520.png" alt=""></div>
+									<p class="sub_txt">고객님의 뜻 그대로,<br>IBK가 지켜드립니다.</p>
+								</a>
+							</li>
+							<!--<li>
+								<a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=11&tmcd=101&pdcd=0080">
+									<p class="tit">IBK 중기근로자급여파킹통장</p>
+									<div class="img_area"><img src="/img/main2023/img_prd_recom_03_240405.png" alt=""></div>
+									<p class="sub_txt">잔액 300만원까지 연3.0%<br>(세전, 고시금리 연0.1%)</p>
+								</a>
+							</li>
+							<li>
+								<a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=51&tmcd=183&pdcd=0097&wvcd=***********&banner=ibk_main_mddl_01111010080">
+									<p class="tit">IBK중기근로자우대중금채</p>
+									<div class="img_area"><img src="/img/main2023/img_prd_recom_01_230926.png" alt=""></div>
+									<p class="sub_txt">중소기업임직원 전용<br> 거치식 상품</p>
+								</a>
+							</li>
+							<li>
+								<a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=21&tmcd=131&pdcd=0140">
+									<p class="tit">IBK혁신창업기업응원통장</p>
+									<div class="img_area"><img src="/img/main2023/img_prd_recom_02.png" alt=""></div>
+									<p class="sub_txt">혁신창업기업 응원에 개인&middot;기업&middot;기관<br> 모두가 동참할 수 있습니다. </p>
+								</a>
+							</li>
+							<li>
+								<a href="https://kiup.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/ENTR701000_i2.jsp?biz_kind=&i_trns_biz_kncd=i-ONE+U+%C5%EB%C0%E5&lncd=01&grcd=11&tmcd=101&pdcd=0078&wvcd=***********&p_code=01111010078***********&menu_id=E0001010000&APLY_EFNC_MENU_ID=E0001010000&SCRE_ID=ENTR701000_m&pageIndex=1&product_flag=Y&product_nm=&pdm=&prdcCd=&depoSort=03&dataCntnYn=N&nextKeySqn=0&tab_id=3&prdcKeyword=&depoPeriod=&depoOpt10=&prdcSaleYN=Y">
+									<p class="tit">U일한 입출식 예금</p>
+									<div class="img_area"><img src="/img/main2023/img_prd_recom_03.png" alt=""></div>
+									<p class="sub_txt">법인도 개설 가능한<br> U일한 비대면 전용 상품</p>
+								</a>
+							</li>
+							-->
+							
+						</ul>
+						<div class="visual-slider-controller direction">
+							<div class="count"><span class="now"></span> <span>/</span> <span class="total">3</span></div>										
+							<a href="#" class="slider-arrow slider-prev prev"><span class="blind">이전 슬라이드</span></a>
+							<a href="#" class="slider-arrow slider-next next"><span class="blind">다음 슬라이드</span></a>
+						</div>
+						<div class="sub-slider-nav visual-slider-nav"></div> 
+					</div>
+				</div>
+				
+				<!-- 이벤트 -->
+				<div class="bx_cont event">
+					<h3>이벤트</h3>
+					<div class="event_slider_wrap slider-wrap" id="eventSlider">
+						<ul class="visual-slider">
+							<li>
+									<a href="/event/ingDetailEvent.ibk?evnt_srno=103541&evnt_dscd=H&pageId=CM01060100" target="_blank">
+										<div class="tit_area">
+											<p class="evt_tit"><span class="pc_br">퇴직연금 빈칸 퀴즈 이벤트</span></p>
+											<p class="evt_sub">퀴즈만 풀어도 경품 100%!</p>
+										</div>
+										<div class="img_area"><img src="/img/main2023/img_event_slide_01_251107.png" alt=""></div>
+									</a>
+							</li>
+							<li>
+									<a href="/event/ingDetailEvent.ibk?evnt_srno=103536&evnt_dscd=H&pageId=CM01060100" target="_blank">
+										<div class="tit_area">
+											<p class="evt_tit"><span class="pc_br">"첫 거래고객" 한정<br>IBK랜덤게임적금<br>특별이벤트!</span></p>
+											<p class="evt_sub">N페이 2만원 / 선착순 5백명 혜택!</p>
+										</div>
+										<div class="img_area"><img src="/img/main2023/img_event_slide_01_251029.png" alt=""></div>
+									</a>
+							</li>
+							<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103534&evnt_dscd=H&pageId=CM01060100" target="_blank">
+										<div class="tit_area">
+											<p class="evt_tit"><span class="pc_br">i-ONE FUNS DAY</p>
+											<p class="evt_sub">신나게 게임하고<br> 맛있는 경품 받자!</p>
+										</div>
+										<div class="img_area"><img src="/img/main2023/img_event_slide_02_251020.png" alt=""></div>
+									</a>
+							</li>
+
+
+	
+<!-- 		
+						<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103519&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">IBK랜덤게임적금 출시 EVENT!</span></p>
+										<p class="evt_sub">최고 연 15%~기본 연 1%(세전)<br>적금 가입하면 경품이 팡팡</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_250911.png" alt=""></div>
+								</a>
+						</li>
+
+						<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103518&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">i-ONE Bank 새단장기념<br>이벤트</p>
+										<p class="evt_sub">i-ONE Bank의 달라진 경험, 지금부터</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_03_250828.png" alt=""></div>
+								</a>
+						</li>
+
+
+   				           <li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103520&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">2025 입크페스티벌</p>
+										<p class="evt_sub">클릭 한 번으로 응모하고, 태양 보러가자</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_02_250908.png" alt=""></div>
+								</a>
+						</li>
+				
+						<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103418&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">IBK중소기업재직자우대저축</span>가입기업 혜택 안내</p>
+										<p class="evt_sub">IBK기업은행이 준비한<br>7가지 혜택을 확인해 주세요♥</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_241024.png" alt=""></div>
+								</a>
+						</li>
+
+	<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103479&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">Be My Buddy!</span></p>
+										<p class="evt_sub">Open an Account, Card<br>and Receive Benefits<br>[i-ONE Bank Global App]</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_250416.png" alt=""></div>
+								</a>
+						</li>
+
+						<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103437&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">IBK 카드앱 출시 EVENT</span>3만 포인트가 온다!</p>
+										<p class="evt_sub">선착순 파도타기 챌린지!</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_241227.png" alt=""></div>
+								</a>
+						</li>
+
+			<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103484&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">i-ONE 가드 초성퀴즈 EVENT!</span></p>
+										<p class="evt_sub">나도 혹시? 의심되면 바로 점검<br>퀴즈 풀고! 시원한 커피 한 잔!</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_250507.png" alt=""></div>
+								</a>
+						</li>
+
+                    	
+
+                         <li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103398&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">외환 신규기업 이벤트</span>「 IBK 2024 외환 올림Pick 」 시즌2</p>
+										<p class="evt_sub">수출입 목표 이루고<br>환율·수수료·경품 혜택 받아가세요! </p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_240909.png" alt=""></div>
+								</a>
+						</li>
+
+						<li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103451&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">화제의 신상품</span>지금 바로 만나러 가요!♥</p>
+										<p class="evt_sub">「처음 만나는 IBK적금」<br>「처음 만나는 IBK중금채」</p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_250203.png" alt=""></div>
+								</a>
+						</li>
+
+
+
+
+					  	 <li>
+								<a href="/event/ingDetailEvent.ibk?evnt_srno=103387&evnt_dscd=H&pageId=CM01060100" target="_blank">
+									<div class="tit_area">
+										<p class="evt_tit"><span class="pc_br">장부수금관리</span> 사전 오픈 이벤트</p>
+										<p class="evt_sub">장부 관리하고<br>공기청정기의 행운을 잡으세요! </p>
+									</div>
+									<div class="img_area"><img src="/img/main2023/img_event_slide_01_240813.png" alt=""></div>
+								</a>
+							</li>
+
+
+-->
+
+						</ul>
+						<div class="visual-slider-controller direction">
+							<div class="count"><span class="now"></span> <span>/</span> <span class="total">3</span></div>
+							<a href="#" class="slider-arrow slider-prev prev"><span class="blind">이전 슬라이드</span></a>
+							<a href="#" class="slider-arrow slider-next next"><span class="blind">다음 슬라이드</span></a>
+						</div>
+						<div class="sub-slider-nav visual-slider-nav"></div> 
+					</div>
+				</div>
+
+				<!-- 알림 -->
+				<div class="bx_cont notify">
+					<h3>알림</h3>
+					<div class="notify_slider_wrap slider-wrap" id="notifySlider">
+						<ul class="visual-slider">
+						<li>
+						
+							<div class="notify_banner noti03">
+								<a href="http://ibk.kr/오늘의운세" target="_blank">
+									<span class="sub_tit">행운을 가져다주는</span>
+									<strong class="tit">오늘의 운세 서비스 출시</strong>
+								</a>
+							</div>							
+
+							<div class="notify_banner noti02">
+								<a href="/cyber/newibkDetailCyber.ibk?pageId=IR03010200&category=0&srno=316080" target="_blank">
+									<span class="sub_tit">금융감독원</span>
+									<strong class="tit">불법사금융 피해예방</br>대응 안내</strong>
+								</a>
+							</div>
+
+							<div class="notify_banner noti04">
+								<a href="https://www.ibkchanggong.com" target="_blank">
+									<span class="sub_tit">IBK창공(創工)</span>
+									<strong class="tit">혁신창업기업 모집</strong>
+								</a>
+							</div>
+							
+							<!--<div class="notify_banner noti02">
+								<a href="/cyber/newibkDetailCyber.ibk?pageId=IR03010200&category=0&srno=315077" target="_blank">
+									<span class="sub_tit">저사양 웹 브라우저</span>
+									<strong class="tit">지원종료 안내</strong>
+								</a>
+							</div>
+
+							<div class="notify_banner noti01">
+								<a href="/cyber/newibkDetailCyber.ibk?pageId=IR04010200&category=0&srno=316064" target="_blank">
+									<span class="sub_tit">제75회 희망중소기업포럼</span>
+									<strong class="tit">참가 신청 안내</strong>
+								</a>
+							</div>
+
+							<div class="notify_banner noti01">
+								<a href="/ir/bylaws/detailActive.ibk?srno=301&pageId=IR02010000" target="_blank">
+									<span class="sub_tit">2024년 공공기관 종합청렴도</span>
+									<strong class="tit">평가 결과 공개</strong>
+								</a>
+							</div>
+
+							<div class="notify_banner noti02">
+								<a href="https://startup-plus.kr/project/PRJ005191" target="_blank">
+									<span class="sub_tit">IBK 1st LAB</span>
+									<strong class="tit">6기 참여기업 모집</strong>
+								</a>
+							</div>
+							
+-->
+
+
+						</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 보도자료 -->
+				<div class="bx_cont board1 pboard">
+					<h3>보도자료</h3>
+					<div class="no_data" style="display:none">등록된 보도자료가 없습니다.</div>
+					<div class="board_list_wrap">
+						<ul class="board_list" id="new_notice3">
+						</ul>
+						<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_보도자료\' ); }catch(_e){ }');" href="/cyber/noticeDataListCyber.ibk?pageId=IR03010500&amp;category=0" title="보도자료 더보기" class="btn_more" aria-label="보도자료 더보기" ><span>더보기</span></a><!-- 2025.03.19 수정 -->
+					</div>
+				</div>
+
+				<!-- 상품몰 -->
+				<div class="bx_cont mall">
+					<h3>상품몰</h3>
+					<ul class="mall_list">
+						<li class="mall01"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_m.jsp?APLY_EFNC_MENU_ID=P0104010000&SCRE_ID=PNTR701000_m&MENU_DIV=GNB">예금</a></li>
+						<li class="mall02"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7015/PNTR701500_m.jsp?APLY_EFNC_MENU_ID=P0105010000&SCRE_ID=PNTR701500_m&MENU_DIV=GNB">대출</a></li>
+						<li class="mall03"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/main/p_certi_one_login.jsp?return_url=/uib/jsp/guest/ntr/ntr70/ntr7020/PNTR702000_m.jsp%3FAPLY_EFNC_MENU_ID%3DP0106010000%26SCRE_ID%3DPNTR702000_m%26MENU_DIV%3DGNB">펀드</a></li>
+						<li class="mall04"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7035/PNTR703500_m.jsp?APLY_EFNC_MENU_ID=P0107010000&SCRE_ID=PNTR703500_m&MENU_DIV=GNB">신탁</a></li>
+						<li class="mall05"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7040/PNTR704000_m.jsp?APLY_EFNC_MENU_ID=P0108010000&SCRE_ID=PNTR704000_m&MENU_DIV=GNB">외환</a></li>
+						<li class="mall06"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7025/PNTR702500_m.jsp?APLY_EFNC_MENU_ID=P0109010000&SCRE_ID=PNTR702500_m&MENU_DIV=GNB">보험</a></li>
+						<li class="mall07"><a href="/cardbiz/listBizNew.ibk?pageId=CA01010000">카드</a></li>
+						<li class="mall08"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7045/PNTR704500_m.jsp?APLY_EFNC_MENU_ID=P0111010000&SCRE_ID=PNTR704500_m&MENU_DIV=GNB">ISA</a></li>
+						<li class="mall09"><a href="https://mybank.ibk.co.kr/uib/jsp/guest/main/p_certi_one_login.jsp?return_url=/uib/jsp/online/rpm/rpm20/rpm2010/PRPM201000_m.jsp%3FAPLY_EFNC_MENU_ID%3DP0112010000%26SCRE_ID%3DPNTR705000_m%26MENU_DIV%3DGNB">퇴직연금</a></li>
+					</ul>
+				</div>
+
+				<!-- 새소식 -->
+				<div class="bx_cont board2 pboard">
+					<h3>새소식</h3>
+					<div class="no_data" style="display:none">등록된 새소식이 없습니다.</div>
+					<div class="board_list_wrap">
+						<ul class="board_list" id="new_letter3">
+						</ul>
+						<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_새소식\' ); }catch(_e){ }');" href="/cyber/newibkListCyber.ibk?pageId=IR03010200&amp;category=0" title="새소식 더보기" class="btn_more"  aria-label="새소식 더보기"><span>더보기</span></a> <!-- 2025.03.19 수정 -->
+					</div>
+				</div>
+
+				<!-- 공고 -->
+				<div class="bx_cont board3 pboard">
+					<h3>공고</h3>
+					<div class="no_data" style="display:none">등록된 공고가 없습니다.</div>
+					<div class="board_list_wrap">
+						<ul class="board_list" id="notice3">
+						</ul> 
+						<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_공고\' ); }catch(_e){ }');" href="/cyber/noticeListCyber.ibk?pageId=IR03010400" title="공고 더보기" class="btn_more" aria-label="공고 더보기"><span>더보기</span></a> <!-- 2025.03.19 수정 -->
+					</div>
+				</div>
+				
+				<!-- 모바일 게시판 -->
+				<div class="bx_cont mboard">
+					<ul class="tabmenu" role="tablist">
+						<li class="active" id="board01" role="tab" aria-selected="true"><a href="#none">보도자료</a></li>
+						<li id="board02" role="tab" aria-selected="false"><a href="#none">새소식</a></li>
+						<li id="board03" role="tab" aria-selected="false"><a href="#none">공고</a></li>
+					</ul>
+					<!-- 보도자료 -->
+					<div class="boardcont active" role="tabpanel" aria-labelledby="board01">
+						<ul class="board_list" id="new_notice2">
+						</ul>
+						<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_보도자료\' ); }catch(_e){ }');" href="/cyber/noticeDataListCyber.ibk?pageId=IR03010500&amp;category=0" title="보도자료 더보기" class="btn_more"  aria-label="보도자료 더보기"><span>더보기</span></a> <!-- 2025.03.19 수정 -->
+					</div>
+
+					<!-- 새소식 -->
+					<div class="boardcont" role="tabpanel" aria-labelledby="board02">
+						<ul class="board_list" id="new_letter2">
+							
+						</ul>
+						<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_새소식\' ); }catch(_e){ }');" href="/cyber/newibkListCyber.ibk?pageId=IR03010200&amp;category=0" title="새소식 더보기" class="btn_more"  aria-label="새소식 더보기"><span>더보기</span></a> <!-- 2025.03.19 수정 -->
+					</div>
+					<!-- 공고 -->
+					<div class="boardcont" role="tabpanel" aria-labelledby="board03">
+						<ul class="board_list" id="notice2">
+						</ul>
+						<a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_공고\' ); }catch(_e){ }');" href="/cyber/noticeListCyber.ibk?pageId=IR03010400" title="공고 더보기" class="btn_more"  aria-label="공고 더보기"><span>더보기</span></a> <!-- 2025.03.19 수정 -->
+					</div>
+				</div>
+
+				<!-- ESG경영 -->
+				<div class="bx_cont ibk_esg">
+					<a href="/common/navigation.ibk?linkUrl=/intro/contrib/contribute_report.jsp&pageId=IR06060000">
+						<h3>IBK기업은행 ESG경영</h3>
+						<p class="desc">기본에 충실한 지속가능한 은행</p>
+						<p class="desc">"씨앗을 심는 금융, 숲을 키우는 IBK"</p>
+					</a>
+				</div>
+
+				<!-- 은행안내 -->
+				<div class="bx_cont ibk_info">
+					<a href="/common/navigation.ibk?linkUrl=/intro/announce/history_07.jsp&pageId=IR01030100">
+						<h3>IBK기업은행 안내</h3>
+						<p class="desc">은행소개와 연혁을 안내드립니다.</p>
+					</a>
+				</div>
+
+				<!-- IBK창공 -->
+				<div class="bx_cont changgong">
+					<div class="cg_slider_wrap slider-wrap" id="cgSlider">
+						<ul class="visual-slider">
+							<li class="cg">
+								<a href="https://ibkchanggong.com/cmm/main.do">
+									<p class="tit">IBK창공(創工)</p>
+									<p class="sub_txt">IBK기업은행이 혁신 창업기업을<br>지원하기 위한 종합 플랫폼입니다.</p>
+								</a>
+							</li>
+							<li class="mall">
+								<a id="intoMall">
+									<p class="tit">IBK제휴몰</p>
+									<p class="sub_txt">IBK와 거래기업이 제휴를 통해<br> 할인혜택을 제공하는 서비스입니다.</p>
+								</a>
+							</li>
+						</ul>
+						<div class="visual-slider-controller direction">
+							<div class="count"><span class="now"></span> <span>/</span> <span class="total">2</span></div>
+							<a href="#" class="slider-arrow slider-prev prev"><span class="blind">이전 슬라이드</span></a>
+							<a href="#" class="slider-arrow slider-next next"><span class="blind">다음 슬라이드</span></a>
+						</div>
+						<div class="sub-slider-nav visual-slider-nav"></div>
+					</div>
+				</div>
+
+				<!-- 기타서비스 -->
+				<div class="bx_cont service">
+					<ul class="etc_service_list">
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_서민금융\' ); }catch(_e){ }');" href="/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7015/PNTR701535_m.jsp?APLY_EFNC_MENU_ID=P0105070000&SCRE_ID=PNTR701535_m&MENU_DIV=GNB"><span>서민금융</span></a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기2_IBKBOX\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/coop/box_loan.jsp&amp;pageId=SM01130000">IBK BOX</a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기1_IBK 부동산 매물광장\' ); }catch(_e){ }');" href="/cyber/printListCyber.ibk?pageId=SI05080000&category=12"><span>IBK 부동산 매물광장</span></a></li>
+						<li ><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기2_지급보증서발급조회\' ); }catch(_e){ }');" href="javascript:bankingLogin('E');" title="새창열림">지급보증서발급조회</a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기2_잔액증명서발급조회\' ); }catch(_e){ }');" href="javascript:bankingLogin('F');" title="새창열림">잔액증명서발급조회</a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기2_이용시간\' ); }catch(_e){ }');" href="/inform/detailTime.ibk?category2=조회&category=1&pageId=CM01050200">이용시간</a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기2_수수료안내\' ); }catch(_e){ }');" href="/inform/detailFee.ibk?category=A&pageId=CM01050100">수수료안내</a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기2_이메일상담\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/customer/counsel/counsel_email.jsp&pageId=CM01010300" >이메일상담</a></li>
+						<li><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_바로가기2_전자민원\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/customer/counsel/counsel_minwon.jsp&amp;pageId=CM01080400">전자민원접수</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- //서비스영역 -->
+
+		<!-- 하단 컨텐츠 -->
+		<div class="btm_service_contents">
+			<!-- App/Web 서비스 -->
+			<ul class="ibk_app_list">
+				<li class="app01"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_원뱅크배너(개인)\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/mobileb/one_bank.jsp&pageId=SM01090000" />i-ONE Bank<br>(개인)</a></li>
+				<li class="app02"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_원뱅크배너(기업)\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/mobileb/kiup_onebank.jsp&pageId=SM01020000\">i-ONE Bank<br>(기업)</a></li>
+				<li class="app04"><a onMouseDown="eval('try{_trk_clickTrace( \'EVT\', \'INDEX_i-ONE 알림\' ); }catch(_e){ }');" href="/common/navigation.ibk?linkUrl=/financetech/efinance/coop/ibksms_01.jsp&pageId=SM01120000">i-ONE 알림</a></li>
+			</ul>
+
+			<!-- 홍보콘텐츠 -->
+			<ul class="video_list">
+				<li>
+					<a target="_blank" title="새창열림" href="https://www.youtube.com/embed/m-6bxDkrJvE">
+						<div class="thumb"><img src="/img/main2023/img_youtube_05.png" alt=""></div>
+						<p class="tit">이 땅의 모든 기업이<br>그 사명을 다 이루도록</p>
+					</a>
+				</li>
+				<li>
+					<a target="_blank" title="새창열림" href="https://www.youtube.com/embed/HpgwmnbAmxg">
+						<div class="thumb"><img src="/img/main2023/img_youtube_04.png" alt=""></div>
+						<p class="tit">IBK 카드앱 포인트 혜택의<br>모든 것이 있다.</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- //하단 컨텐츠 -->
+
+		<!-- start : 2025-09-25 추가 -->
+		<div class="layer_popup disabled">
+			<div class="popup_area">
+				<div class="pop_header">
+					<p>인사말</p>
+					<svg class="pop_close" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20.5661 19.4328C20.8785 19.7452 20.8786 20.2517 20.5661 20.5642C20.2537 20.8766 19.7472 20.8766 19.4348 20.5642L12.001 13.1304L4.56719 20.5642C4.25477 20.8766 3.74824 20.8766 3.43582 20.5642C3.1234 20.2517 3.1234 19.7452 3.43582 19.4328L10.8696 11.999L3.43549 4.56491C3.12307 4.25249 3.12307 3.74595 3.43549 3.43353C3.74791 3.12111 4.25444 3.12111 4.56686 3.43353L12.001 10.8676L19.4351 3.43353C19.7475 3.12111 20.254 3.12111 20.5665 3.43353C20.8789 3.74595 20.8789 4.25249 20.5665 4.56491L13.1323 11.999L20.5661 19.4328Z" fill="#101116"/></svg>
+				</div>
+				<div class="pop_conts">
+					<img src="/img/main2023/layer_popup_250924.png" alt="행복한 추석 연휴 보내세요. IBK 기업은행"/>
+				</div>
+				<div class="pop_foot">
+					<span class="chk_txt">
+						<input type="checkbox" id="chk0101" title="팝업 하루동안 보지않기 체크" value="">
+						<label for="chk0101">하루동안 보지않기</label>
+					</span>
+					<a href="#" class="pop_close">닫기</a>
+				</div>
+			</div>
+			<div class="dimd_area"></div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$('.pop_close').click(function(){
+					if($("#chk0101").is(":checked")){
+						setCookieUntilMidnight("hideToday", "Y");
+					}
+					$('.layer_popup').addClass('disabled');
+				});
+
+				if(getCookie("hideToday") !== "Y"){
+					$('.layer_popup').removeClass('disabled');
+				} else {
+					$('.layer_popup').addClass('disabled');
+				}
+			});
+
+			function setCookieUntilMidnight(name, value){
+				var now = new Date();
+				var expire = new Date();
+
+				//오늘 자정으로 만료시간 세팅
+				expire.setHours(23, 59, 59, 999);
+				document.cookie = name + "=" + value + ";expires=" + expire.toUTCString() + ":path=/";
+			}
+
+			function getCookie(name){
+				var value = "; " + document.cookie;
+				var parts = value.split("; " + name + "=");
+
+				if(parts.length === 2){
+					return parts.pop().split(";").shift();
+				}
+			}
+		</script>
+		<!-- end : 2025-09-25 추가 -->
+	</div>
+	<!-- //메인 컨텐츠 -->
+
+	<hr /> 
+	
+	<!-- footer -->
+	<div id="footer" role="contentinfo">
+		<script type="text/javascript" src="/js/rwd/navigation/rwd_footer.js"></script>
+		<span itemscope="" itemtype="http://schema.org/Organization">
+		     <link itemprop="url"  href="https://www.ibk.co.kr">
+   		     <a itemprop="sameAs"  href="https://play.google.com/store/apps/details?id=com.ibk.android.ionebank">
+			 <a itemprop="sameAs"  href="https://www.instagram.com/goodibk">
+   		     <a itemprop="sameAs"  href="https://blog.naver.com/good_ibk">
+			 <a itemprop="sameAs"  href="https://www.youtube.com/GoodIBK">
+  		     <a itemprop="sameAs"  href="https://www.facebook.com/IBK.bank.official">
+	    </span>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('.slide_prodt').mainSlider({cmt:'.nav', auto:true, autoDelay:4000, speed : 300,autoBtn:'.btn_ctrl'});
+	$('.slide_notice').mainSlider({bulit:true, speed : 300});
+	$('.slide_event').mainSlider({bulit:true, speed : 300});
+
+	//배치 자동용 xml 
+	xmlLoad('/common/swf/xml/main_news.xml', 3, 'news'); //뉴스
+	xmlLoad('/common/swf/xml/main_noticedata.xml', 3, 'newsdata'); //보도자료
+	xmlLoad('/common/swf/xml/main_notice.xml', 3, 'notice'); //공지
+	
+	xmlLoad('/common/swf/xml/main_news.xml', 2, 'news'); //뉴스(모바일)
+	xmlLoad('/common/swf/xml/main_noticedata.xml', 2, 'newsdata'); //보도자료(모바일)
+	xmlLoad('/common/swf/xml/main_notice.xml', 2, 'notice'); //공지(모바일)
+	function xmlLoad(url, max, type){
+		$.ajax({
+			dataType: 'xml',
+			url: url,
+			success: function(xml) {
+				if(type == 'newsdata'){
+					var el = '';
+					$(xml).find('item').each(function(i, itm){
+						if(i<max)	el += '<li><a onMouseDown="eval(\'try{_trk_clickTrace(\'EVT\', \'INDEX_보도자료\' ); }catch(_e){ }\');" href="/cyber/noticeDataDetailCyber.ibk?pageId=IR03010500&amp;srno='+$(itm).find('Url').text()+'"><span class="date">'+$(itm).find('Date').text()+'</span><p class="tit">'+$(itm).find('Text').text()+'</p></a></li>';
+					});
+						$('#new_notice'+max).html(el);
+				}
+				if(type == 'news'){
+					var el = '';
+					$(xml).find('item').each(function(i, itm){
+						if(i<max)	el += '<li><a onMouseDown="eval(\'try{_trk_clickTrace(\'EVT\', \'INDEX_새소식\' ); }catch(_e){ }\');" href="/cyber/newibkDetailCyber.ibk?pageId=IR03010200&amp;category=0&amp;srno='+$(itm).find('Url').text()+'"><span class="date">'+$(itm).find('Date').text()+'</span><p class="tit">'+$(itm).find('Text').text()+'</p></a></li>';
+					});
+					$('#new_letter'+max).html(el);
+					
+				}
+				if(type == 'notice'){
+					var el = '';
+					$(xml).find('item').each(function(i, itm){
+						if(i<max)	el += '<li><a onMouseDown="eval(\'try{_trk_clickTrace(\'EVT\', \'INDEX_공고\' ); }catch(_e){ }\');" href="/cyber/noticeDetailCyber.ibk?pageId=IR03010400&amp;category=0&amp;srno='+$(itm).find('Url').text()+'"><span class="date">'+$(itm).find('Date').text()+'</span><p class="tit">'+$(itm).find('Text').text()+'</p></a></li>';
+					});
+					$('#notice'+max).html(el);
+				}
+			},
+			error: function(xhr, status, error){}
+
+		});
+	}
+
+	$("#hidden_noti_top").click(function(){
+		//20160323 인풋박스 체크 확인 추가
+		if($("#oneday").is(":checked")){
+			$.cookie('notice', 'close',{expires:1});
+		};
+		
+		$("#noti_top_wrap").stop().animate({height : 0}, 500, "easeOutCirc");
+		$(".allGnb").stop().animate({top : 0}, 500, "easeOutCirc");
+	});
+	
+	//쿠키설정
+	//20151019
+	if(!$.cookie('notice')){
+		$("#noti_top_wrap").delay(2000).slideDown(600);
+	}
+	//20151019
+
+/**
+	*	뱅킹로그인
+	*/
+	function bankingLogin(idx){
+		/*
+			기업뱅킹(모바일 메뉴) = G
+			기업뱅킹(탑 메뉴) = H
+			카드동록 = I
+			지급보증서발급조회 - E
+			잔액증명서발급조회 - F   일 경우에는 PC URL로만 이동하게끔 하고, 
+			모바일 에서는 alert 메시지 노출 후 return 
+		*/
+		if(idx == 'onlyPC'){
+			alert("본 서비스는 PC(컴퓨터)에서 이용 가능합니다.");
+			return;
+		}
+		
+		if(idx == 'MAIN'){
+			if(isIphone == true || isAndroid == true){
+
+			}else{
+				return;
+			}
+
+		}
+		if(isIphone == true || isAndroid == true){
+			if(idx == 'I' || idx == 'E'|| idx == 'F'|| idx == 'J'|| idx == 'K' ){
+				alert("본 서비스는 PC(컴퓨터)에서 이용 가능합니다.");
+				return;
+			}
+		}
+		
+		
+		if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 ){
+			if(confirm('본 서비스는 i-ONE뱅크(앱)으로 이동합니다.')){
+				if(idx == 'H'){
+					runApp('ibkone://', 'https://goo.gl/ZUF5yy', 'i');
+				} else {
+					//runApp('ibkone://', 'https://itunes.apple.com/app/id1007966931?mt=8', 'i');
+					runApp('ibkone://', 'https://itunes.apple.com/app/id1460543865', 'i');
+				}
+			}
+			
+		}else if(uAgent.indexOf('android') != -1 ){
+			if(confirm('본 서비스는 i-ONE뱅크(앱)으로 이동합니다.')){
+				if(idx == 'H'){
+					runApp('ibkone://', 'https://goo.gl/Gfp7JZ', 'a');
+				} else {
+					//runApp('ibkone://', 'market://details?id=com.ibk.onebankA', 'a');
+					runApp('ibkone://', 'market://details?id=com.ibk.android.ionebank', 'a');
+				}
+			}
+			
+		}else{
+			
+			if(idx == 'A'){//뱅킹 로그인
+
+				var form = document.hiddenForm;
+				form.action = "https://mybank.ibk.co.kr/uib/jsp/index.jsp";
+				form.return_url.value = "/uib/jsp/guest/main/p_certi_one_login.jsp";
+				form.submit();
+
+
+			}else if(idx == 'A_mybank'){//뱅킹 로그인_개인_20181211
+				var form = document.hiddenForm;
+				form.action = "https://mybank.ibk.co.kr/uib/jsp/index.jsp";
+				form.return_url.value = "/uib/jsp/guest/main/p_certi_one_login.jsp";
+				form.submit();
+  
+
+			}else if(idx == 'A_kiup'){//뱅킹 로그인_기업_20181211
+			window.location.assign("https://kiup.ibk.co.kr");
+
+			//if(idx == 'A'){//뱅킹 로그인 backup
+			//	window.location.assign("/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/CINQ101000_i.jsp&amp;scriptYN=Y");
+			//	window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/main/p_certi_one_login.jsp?chkMenuId=Y");
+
+			}else if(idx == 'B'){
+				//window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/cer/cer00/cer0000/CCER000000_i.jsp");
+				window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/fer/fer00/fer0000/CFER000000_i.jsp");
+			}else if(idx == 'C'){ //계좌조회
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs10/qcs1010/PQCS101000_i.jsp','chzero','width=900,height=680,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=yes'));");
+			}else if(idx == 'D'){//카드 조회 확인
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs50/qcs5010/PQCS501000_i.jsp','win','width=900,height=680,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=yes'));");
+			}else if(idx == 'E'){//지급보증서발급조회
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs110/PQCS1101000_i.jsp','chzero','width=800,height=640,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=no'));");
+			}else if(idx == 'F'){//잔액증명서발급조회
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs100/qcs10010/PQCS1001000_i.jsp','chzero','width=800,height=640,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=no'));");
+			}else if(idx == 'G'){
+				window.location.assign("https://mybank.ibk.co.kr");
+			}else if(idx == 'H'){
+				window.location.assign("https://kiup.ibk.co.kr");
+			}else if(idx == 'I'){//카드등록
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs120/PQCS1201000_i.jsp','cardInputPop','width=900,height=680,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=yes'));");
+			}else if(idx == 'J'){
+				window.location.assign("/fxtr/excRateList.ibk?pageId=FM05020000");
+			}else if(idx == 'K'){
+				window.location.assign("/common/navigation.ibk?linkUrl=/customer/counsel/minwon_01.jsp&pageId=CM01080100");
+			}
+		}
+	}
+		/**
+	*	App running
+	*/
+	function runApp(appPath, appStorePath, client){
+		var checkClient;
+	
+		//안드로이드, 아이폰, 아이패드 확인
+		if(uAgent.indexOf('iphone') > 0  || uAgent.indexOf('ipod') > 0 || uAgent.indexOf('ipad') > 0 ){
+			checkClient = "i";
+		}else if(uAgent.indexOf('android') > 0){
+			checkClient = "a";
+		}else{
+			alert("iOS, 안드로이드에서 사용할 수 있습니다.");
+			return;
+		}
+		
+		if(client == checkClient){
+			if(uAgent.indexOf('iphone') > 0  || uAgent.indexOf('ipod') > 0 || uAgent.indexOf('ipad') > 0 ){
+				check_app.location.href = appPath;
+				setTimeout("linkIphone('"+appStorePath+"')", 1000*1);
+			}else if(uAgent.indexOf('android') > 0){
+				check_app.location.href = appPath;
+				setTimeout("linkAndroid('"+appStorePath+"')", 1000*1);
+			}else{
+				
+				if(client == "i"){
+					alert("iOS(아이폰, 아이패드)에서만 사용할 수 있습니다.");
+				}else if(client=="a"){
+					alert("안드로이드OS 에서만 사용할 수 있습니다.");
+				}
+				
+			}
+		}
+	}
+	
+	function linkIphone(link){
+		if(isIphone) {
+			document.location.href = link;
+		}else{
+			alert("iOS(아이폰, 아이패드)에서만 접속이 가능합니다.");
+		}
+	}
+	
+	function linkAndroid(link){
+		if(isAndroid) {
+		
+			document.location.href = link;
+			//window.location.replace('intent://' + o.param + '#Intent;' + o.a_proto + ';end');
+		}else{
+			alert("안드로이드OS 에서만 접속이 가능합니다.");
+		}
+	}
+	
+	//전역변수 - userAgent
+	var uAgent = navigator.userAgent.toLowerCase(); 
+	var isIphone = false;
+	var isAndroid = false;
+
+	$(document).on("click", ".relation_site dt a", function(){
+		var _btn_relationSite = $(this);
+		if( !_btn_relationSite.hasClass('on') ){
+			_btn_relationSite.addClass('on');
+			$(".relation_site dd").not(_btn_relationSite).hide();
+			$(".relation_site dt a").not(_btn_relationSite).removeClass('on');
+			_btn_relationSite.parent().next().show();	
+		}else{
+			_btn_relationSite.removeClass('on');
+			_btn_relationSite.parent().next().hide();
+		}
+		$(".relation_site dd ul li:last-child").bind('focusout', function(){
+			_btn_relationSite.removeClass('on');
+			_btn_relationSite.parent().next().hide();
+		});
+	});
+
+	$(document).ready(function(){
+
+		//스페셜 배너 적용 시작, index_20160226.html 참조
+		
+		var sdate =new Date("2017/04/12 08:00");
+		var edate =new Date("2017/04/13 23:59");
+
+		// 20190906_웃음꽃 가득한 한가위 되세요 광고 버튼 0301
+		var sdate6 =new Date("2019/09/09 00:00");
+		var edate6 =new Date("2019/09/13 23:59");
+
+		// 20250925_추석 연휴 인사
+		var sdate10 =new Date("2025/10/05 00:00");
+		var edate10 =new Date("2025/10/09 23:59");
+
+		var nowdate = new Date();
+
+		var strmessage = "";
+		var sul ="";
+		
+
+		if ((nowdate >=sdate6) && (nowdate <=edate6)){
+			jQuery("#ibk_friend").show();
+		}
+
+
+		if ((nowdate >=sdate) && (nowdate <=edate)){	 //설날인사
+			
+			
+			strmessage = "<p><a onMouseDown=\"eval('try{_trk_clickTrace( \'EVT\', \'INDEX_설날인사\' ); }catch(_e){ }');\" href=\"https://www.youtube.com/embed/s9X8tqxv9ME\" target=\"_blank\" title='IBK기업은행 은행장 설맞이 감사인사 유투브 동영상 새창열림'><img src=\"/img/main/banner_sul_open1s_phone.png\" alt=\"IBK기업은행 은행장 설맞이 감사인사\" /></a><span>바로가기</span></p>";
+
+		
+			sul = "<li class='goto' ><p><a href='https://www.youtube.com/embed/s9X8tqxv9ME' target='_blank' title='IBK기업은행 설인사 새창열림'><img src='/img/main/banner_sul_open1s_phone.png' alt='설인사' /></a><span>바로가기</span></p></li>";
+
+			
+//			jQuery(".open_banner_sul").show();
+			jQuery("#messagechange").html(strmessage);
+
+			
+			jQuery("#mobile2").append(sul);
+			
+
+		
+		}else{											// 원뱅크 
+
+			strmessage = "<p><a onMouseDown=\"eval('try{_trk_clickTrace( \'EVT\', \'INDEX_원뱅크배너\' ); }catch(_e){ }');\" href=\"/common/navigation.ibk?linkUrl=/financetech/efinance/mobileb/one_bank.jsp&pageId=SM01090000\"><img src=\"/img/main/banner_open1s_phone.png\" alt=\"real mobile bank : i-ONE뱅크\" /></a><span>바로가기</span></p>";
+		
+
+			sul = "<li class='goto' ><p><a href='https://www.ibk.co.kr/wm/wm.ibk' target='_blank' title='IBK기업은행 WIN CLASS 새창열림'><img src='/img/main/banner_open2s_phone.png' alt='WIN CLASS' /></a><span>바로가기</span></p></li>";
+			
+
+			
+			jQuery("wm_mobile").show();
+			jQuery(".open_banner").show();
+			jQuery("#messagechange").html(strmessage);
+			jQuery("#mobile2").append(sul);
+			
+		}	
+
+		if ((nowdate >=sdate10) && (nowdate <=edate10)){
+			if(getCookie("hideToday") !== "Y"){
+				$('.layer_popup').removeClass('disabled');
+			} else {
+				$('.layer_popup').addClass('disabled');
+			}
+			
+		} else {
+			$('.layer_popup').addClass('disabled');
+		}
+	
+		//스페셜 배너 적용 끝
+
+
+		//스페셜 로고 적용 시작
+		//크리스마스
+		var sdate5 =new Date("2018/12/25 00:00");
+		var edate5 =new Date("2018/12/25 23:59");
+
+		//2019년 1월 1일 신년
+		var sdate1 =new Date("2019/01/01 00:00");
+		var edate1 =new Date("2019/01/01 23:59");
+
+		//금융의날
+		var sdate2 =new Date("2018/10/30 00:00");
+		var edate2 =new Date("2018/10/30 23:59");
+
+		//부부의날
+		var sdate3 =new Date("2018/05/21 00:00");
+		var edate3 =new Date("2018/05/21 23:59");
+
+		//부처님오신날
+		var sdate4 =new Date("2018/05/22 00:00");
+		var edate4 =new Date("2018/05/22 23:59");
+
+		//보이스피싱 캠페인
+		var sdate9 =new Date("2018/10/02 00:00");
+		var edate9 =new Date("2018/10/31 23:59");
+
+		var nowdate = new Date();
+
+		if ((nowdate >=sdate9) && (nowdate <=edate9))
+		{
+			if(uAgent.indexOf('iphone') > 0 || uAgent.indexOf('ipod')  > 0 || uAgent.indexOf('ipad') > 0 ){
+			jQuery("#pop1").hide();
+			isIphone = true;
+			}else if(uAgent.indexOf('android')  > 0 ){
+				jQuery("#pop1").hide();
+				isAndroid = true;
+			}else{
+				jQuery("#pop1").show();
+				isIphone = false;
+				isAndroid = false;
+			}
+		}else{
+			jQuery("#pop1").hide();
+		}
+
+		var nowdate = new Date();
+
+		if ((nowdate >=sdate5) && (nowdate <=edate5))
+		{
+
+			jQuery("#img_change").html("<img src='/img/navigation/indexlogo/happy_logo.jpg' alt='IBK기업은행 / 크리스마스'  class='h1_holy' />");
+		}else if((nowdate >=sdate1) && (nowdate <=edate1)){
+			jQuery("#img_change").html("<img src='/img/navigation/logo_190101.png' alt=' IBK기업은행 / 신년'  class='h1_holy' />");
+
+		}else if((nowdate >=sdate2) && (nowdate <=edate2)){
+			jQuery("#img_change").html("<img src='/img/navigation/indexlogo/saving_logo.jpg' alt='IBK기업은행 / 금융의날'  class='h1_holy' />");
+
+		}else if((nowdate >=sdate3) && (nowdate <=edate3)){
+			jQuery("#img_change").html("<img src='/img/navigation/indexlogo/couple_logo.jpg' alt='IBK기업은행 / 부부의 날'  class='h1_holy' />");
+
+		}else if((nowdate >=sdate4) && (nowdate <=edate4)){
+			jQuery("#img_change").html("<img src='/img/navigation/indexlogo/buddha_logo.jpg' alt='IBK기업은행 / 부처님오신날'  class='h1_holy' />");
+
+		}else{
+
+			jQuery("#img_change").html("<img src='/img/navigation/h1_logo_sub.gif' alt=' IBK기업은행' />");
+		}
+	
+		//스페셜 로고 적용 끝
+
+			
+		//검색서버 시간에 맞춰서 닫기 
+		var sSearch =new Date("2018/03/17 21:59");
+		var eSearch =new Date("2018/03/17 23:59");
+
+		if ((nowdate >=sSearch) && (nowdate <=eSearch)){
+			jQuery("#searchdiv").hide();
+		}else{
+			jQuery("#searchdiv").show();
+		}
+		//검색서버 시간에 맞춰서 닫기  end
+
+
+		
+		if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 ){
+			jQuery("a#privateBank").attr("href", "https://itunes.apple.com/kr/app/i-onebaengkeu-by-ibkgieob/id1007966931?l=en&mt=8");
+			jQuery("a#bankLogin").attr("href", "https://itunes.apple.com/kr/app/i-onebaengkeu-by-ibkgieob/id1007966931?l=en&mt=8");
+			jQuery("a#bankCert").attr("href", "https://itunes.apple.com/kr/app/i-onebaengkeu-by-ibkgieob/id1007966931?l=en&mt=8");
+			jQuery("a#menuMyBank").attr("href", "https://itunes.apple.com/kr/app/i-onebaengkeu-by-ibkgieob/id1007966931?l=en&mt=8");
+			jQuery("a#kiupBank").on('click', function(){// 기업뱅킹 메뉴 클릭
+				alert('본 서비스는 PC(컴퓨터)에서 이용 가능합니다.');
+				jQuery(this).attr("href", "#");
+				return false;
+			});
+
+		}
+		if(uAgent.indexOf('android') != -1 ){
+			jQuery("a#privateBank").attr("href", "market://details?id=com.ibk.onebankA");
+			jQuery("a#bankLogin").attr("href", "market://details?id=com.ibk.onebankA");
+			jQuery("a#bankCert").attr("href", "market://details?id=com.ibk.onebankA");
+			jQuery("a#menuMyBank").attr("href", "market://details?id=com.ibk.onebankA");
+			jQuery("a#kiupBank").on('click', function(){  // 기업뱅킹 메뉴 클릭
+				alert('본 서비스는 PC(컴퓨터)에서 이용 가능합니다.');
+				jQuery(this).attr("href", "#");
+				return false;
+			});
+		}
+
+		if(uAgent.indexOf('iphone') > 0 || uAgent.indexOf('ipod')  > 0 || uAgent.indexOf('ipad') > 0 ){
+			jQuery("#bankId").hide();
+			isIphone = true;
+		}else if(uAgent.indexOf('android')  > 0 ){
+			jQuery("#bankId").hide();
+			isAndroid = true;
+		}else{
+			isIphone = false;
+			isAndroid = false;
+		}
+		//큐브박스
+		if(uAgent.indexOf('iphone') > 0 || uAgent.indexOf('ipod')  > 0 || uAgent.indexOf('ipad') > 0 ){
+			jQuery("#pop2").hide();
+		}else if(uAgent.indexOf('android')  > 0 ){
+			jQuery("#pop2").hide();
+		}else{
+			jQuery("#pop2").hide();
+		}
+
+		//뱅킹로그인 키보드 처리
+		jQuery("#mainlogin").on('keydown', function(e) {
+			jQuery("#showmain").show();	
+			
+		});
+
+		
+
+/* start : Publisher 정광원 : 20170314 */
+	$(function(){
+		$.LayerOpen = function(obj){
+			var $target = $($(obj).attr('href'));
+			$('#footer').after('<div class="notify-mask" ></div>');
+			$('#wrapper').addClass('fixed');
+			$target.show().attr('tabindex', 0).focus();
+
+			$target.find('.pop-close').click(function(){
+				$('#wrapper').removeClass('fixed');
+				$('.notify-mask').remove();
+				$target.hide();
+				$('#'+$(this).attr('href').replace('#','')).focus();
+				$target.removeAttr('tabindex');
+
+				return false;
+			});
+			return false;
+		}
+
+		$.LayerOpen2 = function(obj){
+			var $target = $($(obj).attr('href'));
+			$('#footer').after('<div class="notify-mask" ></div>');
+			$('#wrapper').addClass('fixed2');
+			$target.show().attr('tabindex', 0).focus();
+
+			$target.find('.pop-close').click(function(){
+				$('#wrapper').removeClass('fixed2');
+				$('.notify-mask').remove();
+				$target.hide();
+				$('#'+$(this).attr('href').replace('#','')).focus();
+				$target.removeAttr('tabindex');
+
+				return false;
+			});
+			return false;
+		}
+
+		$.LayerOpen3 = function(obj){
+			var $target = $('#notify-layer-pop3');
+			$('#footer').after('<div class="notify-mask" ></div>');
+			$('#wrapper').addClass('fixed');
+			$target.show().attr('tabindex', 0).focus();
+			$('#mainVisualWrap .slider-stop').trigger('click');
+			$target.find('.pop-close').click(function(){
+				$('#wrapper').removeClass('fixed');
+				$('.notify-mask').remove();
+				$target.hide();
+				//$('#'+$(this).attr('href').replace('#','')).focus();
+				$target.removeAttr('tabindex');
+
+				return false;
+			});
+			return false;
+		}
+
+		$(".noti-close").click(function(){
+			if($('#oneday').is(':checked')){
+				console.log(1);
+				$.cookie('notice', 'close',{expires:1});
+			}
+			$(".top-noti-wrap").stop().animate({height : 0}, 500, "easeOutCirc");
+			return false;
+		});
+
+		if(!$.cookie('notice')){
+			$(".top-noti-wrap").delay(2000).slideDown(600);
+		}
+	})
+	/* end : Publisher 정광원 : 20170314 */
+		
+	});
+
+	/**
+	*	팝업닫기
+	*/
+	function closePop(idx){
+		if(idx=="1"){
+			jQuery("#pop1").hide();
+		}
+	}
+
+		/**
+	*	팝업닫기
+	*/
+	function closePop2(){
+		jQuery("#pop2").hide();
+	}
+
+
+
+
+	/**
+	* 20181127_이광복계장 추가
+	*	모바일, PC링크 분기
+	*/
+
+	function goLink(w){
+		if(w=="1"){
+			if(uAgent.indexOf('iphone') > 0 || uAgent.indexOf('ipod')  > 0 || uAgent.indexOf('ipad') > 0 ){
+				window.open("https://cube.ibk.co.kr/ibs/index.jsp","_blank");
+			}else if(uAgent.indexOf('android')  > 0 ){
+				window.open("https://cube.ibk.co.kr/ibs/index.jsp","_blank");
+			}else{
+				location.href="/common/navigation.ibk?linkUrl=/financetech/efinance/mobileb/ibk_cube.jsp&pageId=SM01050000"
+			}
+		}
+	}
+
+	//제휴몰 이동
+	$("#intoMall").click(function(){
+		var uAgent= navigator.userAgent.toLowerCase();
+		if(uAgent.indexOf("iphone") > 0 || uAgent.indexOf("ipod")  > 0 || uAgent.indexOf("ipad") > 0){
+			   location.href = "ionebank://openmenu?menuid=cos_evt_030100_1";
+				
+				setTimeout(function () {
+                if(confirm("설치페이지로 이동하시겠습니까?")){
+                    window.location = "https://itunes.apple.com/app/id1460543865?mt=8";
+                } 
+            }, 1000);
+		}else if(uAgent.indexOf("android")  > 0 ){
+			 location.href = "intent://openmenu?menuid=cos_evt_030100_1#Intent;scheme=ionebank;package=com.ibk.android.ionebank;end";
+		}else{
+			 alert("본 서비스는 i-ONE Bank(app)에서 이용 가능합니다.");
+		}
+	});
+	
+
+	/**
+	*	뱅킹로그인
+	*/
+	function bankingLogin(idx){
+		
+		/*
+			기업뱅킹(모바일 메뉴) = G
+			기업뱅킹(탑 메뉴) = H
+			카드동록 = I
+			지급보증서발급조회 - E
+			잔액증명서발급조회 - F   일 경우에는 PC URL로만 이동하게끔 하고, 
+			모바일 에서는 alert 메시지 노출 후 return 한다. 
+			
+			by - 현지훈 수석 - 2015.09.01
+		*/
+		if(idx == 'onlyPC'){
+			alert("본 서비스는 PC(컴퓨터)에서 이용 가능합니다.");
+			return;
+		}
+		
+		if(idx == 'MAIN'){
+			if(isIphone == true || isAndroid == true){
+
+			}else{
+				return;
+			}
+
+		}
+		//alert("idx       : "+idx);
+		/*
+		alert("idx       : "+idx);
+		alert("isIphone  : "+isIphone);
+		alert("isAndroid : "+isAndroid);
+		*/
+		
+		if(isIphone == true || isAndroid == true){
+			if(idx == 'I'  
+				|| idx == 'E'
+				|| idx == 'F'
+				|| idx == 'J'				
+				|| idx == 'K' ){
+				
+				//alert("idx : "+idx);
+				
+				alert("본 서비스는 PC(컴퓨터)에서 이용 가능합니다.@");
+				return;
+			}
+		}
+		
+		
+		if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 ){
+			if(confirm('본 서비스는 i-ONE뱅크(앱)으로 이동합니다.')){
+				if(idx == 'H'){
+					runApp('ibkone://', 'https://goo.gl/ZUF5yy', 'i');
+				} else {
+					//runApp('ibkone://', 'https://itunes.apple.com/app/id1007966931?mt=8', 'i');
+					runApp('ibkone://', 'https://itunes.apple.com/app/id1460543865', 'i');
+				}
+			}
+			
+		}else if(uAgent.indexOf('android') != -1 ){
+			if(confirm('본 서비스는 i-ONE뱅크(앱)으로 이동합니다.')){
+				if(idx == 'H'){
+					runApp('ibkone://', 'https://goo.gl/Gfp7JZ', 'a');
+				} else {
+					//runApp('ibkone://', 'market://details?id=com.ibk.onebankA', 'a');
+					runApp('ibkone://', 'market://details?id=com.ibk.android.ionebank', 'a');
+				}
+			}
+			
+		}else{
+			
+			if(idx == 'A'){//뱅킹 로그인
+//				window.location.assign("?return_url=");
+//				window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/main/p_certi_one_login.jsp?chkMenuId=Y");
+
+				var form = document.hiddenForm;
+				form.action = "https://mybank.ibk.co.kr/uib/jsp/index.jsp";
+				form.return_url.value = "/uib/jsp/guest/main/p_certi_one_login.jsp";
+				form.submit();
+
+
+			}else if(idx == 'A_mybank'){//뱅킹 로그인_개인_20181211
+				//window.location.assign("https://mybank.ibk.co.kr/uib/jsp/index.jsp?return_url=/uib/jsp/guest/main/p_certi_one_login.jsp");
+//				window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/main/p_certi_one_login.jsp?chkMenuId=Y");
+//				window.location.assign("?return_url=");
+//				window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/main/p_certi_one_login.jsp?chkMenuId=Y");
+
+				var form = document.hiddenForm;
+				form.action = "https://mybank.ibk.co.kr/uib/jsp/index.jsp";
+				form.return_url.value = "/uib/jsp/guest/main/p_certi_one_login.jsp";
+				form.submit();
+  
+
+			}else if(idx == 'A_kiup'){//뱅킹 로그인_기업_20181211
+			//window.location.assign("/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/CINQ101000_i.jsp&amp;scriptYN=Y");
+
+
+			window.location.assign("https://kiup.ibk.co.kr");
+
+
+			//if(idx == 'A'){//뱅킹 로그인 backup
+			//	window.location.assign("/bank_bridge.jsp?bankURL=https://mybank.ibk.co.kr/uib/jsp/online/inq/inq10/inq1010/CINQ101000_i.jsp&amp;scriptYN=Y");
+			//	window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/main/p_certi_one_login.jsp?chkMenuId=Y");
+
+
+
+			}else if(idx == 'B'){
+				//window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/cer/cer00/cer0000/CCER000000_i.jsp");
+				window.location.assign("https://mybank.ibk.co.kr/uib/jsp/guest/fer/fer00/fer0000/CFER000000_i.jsp");
+			}else if(idx == 'C'){ //계좌조회
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs10/qcs1010/PQCS101000_i.jsp','chzero','width=900,height=680,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=yes'));");
+			}else if(idx == 'D'){//카드 조회 확인
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs50/qcs5010/PQCS501000_i.jsp','win','width=900,height=680,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=yes'));");
+			}else if(idx == 'E'){//지급보증서발급조회
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs110/PQCS1101000_i.jsp','chzero','width=800,height=640,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=no'));");
+			}else if(idx == 'F'){//잔액증명서발급조회
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs100/qcs10010/PQCS1001000_i.jsp','chzero','width=800,height=640,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=no'));");
+			}else if(idx == 'G'){
+				window.location.assign("https://mybank.ibk.co.kr");
+			}else if(idx == 'H'){
+				window.location.assign("https://kiup.ibk.co.kr");
+			}else if(idx == 'I'){//카드등록
+				window.location.assign("javascript:void(window.open('https://mybank.ibk.co.kr/uib/jsp/guest/qcs/qcs120/PQCS1201000_i.jsp','cardInputPop','width=900,height=680,menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=yes'));");
+			}else if(idx == 'J'){
+				window.location.assign("/fxtr/excRateList.ibk?pageId=FM05020000");
+			}else if(idx == 'K'){
+				window.location.assign("/common/navigation.ibk?linkUrl=/customer/counsel/minwon_01.jsp&pageId=CM01080100");
+			}
+		}
+	}
+	
+	function linkUrl(idx){
+		if(idx == 'A'){
+			location.href = "/cyber/newibkDetailCyber.ibk?pageId=IR03010200&category=0&srno=314722";
+		}else if(idx == 'B'){
+			location.href = "/common/navigation.ibk?linkUrl=/financetech/efinance/fintech/pay_lounge.jsp&pageId=SM05160000";
+		}else if(idx == 'C'){
+			location.href ="/common/navigation.ibk?linkUrl=/intro/contrib/esgSrtg01.jsp&pageId=IR06010100";
+		}
+	}
+	
+	/**
+	*	App running
+	*/
+	function runApp(appPath, appStorePath, client){
+		var checkClient;
+	
+		//안드로이드, 아이폰, 아이패드 확인
+		if(uAgent.indexOf('iphone') > 0  || uAgent.indexOf('ipod') > 0 || uAgent.indexOf('ipad') > 0 ){
+			checkClient = "i";
+		}else if(uAgent.indexOf('android') > 0){
+			checkClient = "a";
+		}else{
+			alert("iOS, 안드로이드에서 사용할 수 있습니다.");
+			return;
+		}
+		
+		if(client == checkClient){
+			if(uAgent.indexOf('iphone') > 0  || uAgent.indexOf('ipod') > 0 || uAgent.indexOf('ipad') > 0 ){
+				check_app.location.href = appPath;
+				setTimeout("linkIphone('"+appStorePath+"')", 1000*1);
+			}else if(uAgent.indexOf('android') > 0){
+				check_app.location.href = appPath;
+				setTimeout("linkAndroid('"+appStorePath+"')", 1000*1);
+			}else{
+				
+				if(client == "i"){
+					alert("iOS(아이폰, 아이패드)에서만 사용할 수 있습니다.");
+				}else if(client=="a"){
+					alert("안드로이드OS 에서만 사용할 수 있습니다.");
+				}
+				
+			}
+		}
+	}
+	
+	function linkIphone(link){
+		if(isIphone) {
+			document.location.href = link;
+		}else{
+			alert("iOS(아이폰, 아이패드)에서만 접속이 가능합니다.");
+		}
+	}
+	
+	function linkAndroid(link){
+		if(isAndroid) {
+		
+			document.location.href = link;
+			//window.location.replace('intent://' + o.param + '#Intent;' + o.a_proto + ';end');
+		}else{
+			alert("안드로이드OS 에서만 접속이 가능합니다.");
+		}
+	}
+
+	var etcLingTextArr = [
+		['지급보증서발급조회', '잔액증명서발급조회', '이용시간', '수수료안내', '전자민원접수', '이메일상담'],
+		['지급보증서<br/>발급조회', '잔액증명서<br/>발급조회','이용시간', '수수료안내', '전자민원접수', '이메일상담'],
+		['지급보증서발급조회', '잔액증명서발급조회', '이용시간', '수수료안내', '전자민원접수', '이메일상담'],
+		['지급보증서발급조회', '잔액증명서발급조회', '이용시간', '수수료안내', '전자민원접수', '이메일상담']
+	];
+	function etcLinkTextChange(s) {
+		$(resizeEtcLinkArr).each(function(i, itm){
+			$(itm).html(etcLingTextArr[s][i]);
+		});	
+	}
+
+	function checkmob(i){
+		var gubun = i;
+		if(gubun == "A"){  //금융상품 메인
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/mall/mall_main_rwd.jsp';
+			}else{
+				return;			
+			}
+		}else if(gubun == "B"){  //놀이터적금
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=21&PDTM_CD=121&PDCD=0109&pageId=FM01010100&depoCateCd=A&banner=ibk_main_mddl_01211210109';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=21&tmcd=121&pdcd=0109&wvcd=***********&banner=ibk_main_mddl_01211210109';
+			}
+		}else if(gubun == "C"){  //#All4biz 예금
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=51&PDTM_CD=183&PDCD=0081&pageId=FM01010100&depoCateCd=A&banner=ibk_main_mddl_01511830081';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=51&tmcd=183&pdcd=0081&wvcd=***********&banner=ibk_main_mddl_01511830081';
+			}
+		}else if(gubun == "D"){  //IBK썸통장
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=11&PDTM_CD=102&PDCD=0058&pageId=FM01010100&depoCateCd=A';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=11&tmcd=102&pdcd=0058&wvcd=***********';
+			}
+		}else if(gubun == "E"){  //IBK사잇돌중금리대출
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/loanbiz/detailBizNew.ibk?PDLN_CD=02&PDGR_CD=21&PDTM_CD=201&PDCD=0199&pageId=FM02010100&loanCateCd=A&banner=ibk_main_mddl_02212010199';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7015/PNTR701500_i2.jsp?lncd=02&grcd=21&tmcd=201&pdcd=0199&wvcd=***********&banner=ibk_main_mddl_02212010199';
+			}
+		}else if(gubun == "F"){  //i-ONE 직장인명함대출
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/loanbiz/detailBizNew.ibk?PDLN_CD=02&PDGR_CD=21&PDTM_CD=201&PDCD=0198&pageId=FM02010100&loanCateCd=A';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7015/PNTR701500_i2.jsp?lncd=02&grcd=21&tmcd=201&pdcd=0198&wvcd=***********';
+			}
+		}else if(gubun == "G"){  //소상공인특별지원자금대출?
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=51&PDTM_CD=183&PDCD=0083&pageId=FM01010100&depoCateCd=A&banner=ibk_main_mddl_01511830083';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=51&tmcd=183&pdcd=0083&wvcd=***********&banner=ibk_main_mddl_01511830083';
+			}
+		}else if(gubun == "H"){  //IBK주식거래 캐시백통장
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=11&PDTM_CD=101&PDCD=0062&pageId=FM01010100&depoCateCd=A';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr /uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=11&tmcd=101&pdcd=0062&wvcd=***********';
+			}
+		}else if(gubun == "I"){  //IBK평생한가족통장[정액적립식]
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=21&PDTM_CD=121&PDCD=0103&pageId=FM01010100&depoCateCd=A';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=21&tmcd=121&pdcd=0103&wvcd=***********';
+			}
+		}else if(gubun == "J"){  //IBK평생한가족통장[자유적립식]
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=21&PDTM_CD=121&PDCD=0102&pageId=FM01010100&depoCateCd=A';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=21&tmcd=121&pdcd=0102&wvcd=***********';
+			}
+		}else if(gubun == "K"){  //IBK평생한가족통장[정기예금]
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=21&PDTM_CD=131&PDCD=0121&pageId=FM01010100&depoCateCd=A';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=21&tmcd=131&pdcd=0121&wvcd=***********';
+			}
+		}else if(gubun == "L"){  //IBK평생한가족통장[입출식]
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=11&PDTM_CD=102&PDCD=0053&pageId=FM01010100&depoCateCd=A';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=11&tmcd=102&pdcd=0053&wvcd=***********';
+			}
+		}else if(gubun == "M"){  //나이야가라통장
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 || uAgent.indexOf('android') != -1){
+				location.href = '/depobiz/depoDetailNew.ibk?PDLN_CD=01&PDGR_CD=51&PDTM_CD=188&PDCD=0008&pageId=FM01010100&depoCateCd=A&banner=ibk_main_mddl_01511880008';
+			}else{
+				location.href = 'https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr70/ntr7010/PNTR701000_i2.jsp?lncd=01&grcd=51&tmcd=188&pdcd=0008&wvcd=***********&banner=ibk_main_mddl_01511880008';
+			}
+		}else if(gubun == "O"){  //딱! 맞는 금융상품 찾기
+			if(uAgent.indexOf('iphone') != -1  || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('ipad') != -1 ){
+				location.href = 'ibkone://openmenu?menuid=fnc_srh_010101_1';
+			}else if ( uAgent.indexOf('android') != -1 ){
+				location.href = 'intent://openmenu?menuid=fnc_srh_010101_1#Intent;scheme=ibkone;package=com.ibk.onebankA;end';
+			}else{
+				window.open('https://mybank.ibk.co.kr/uib/jsp/guest/ntr/ntr75/ntr7530/PNTR753000_i.jsp?width=863&height=670&scroll=yes','딱! 맞는 금융상품 찾기','width=940 height=805 menubar=no ');
+			}
+		}
+
+
+
+	}
+
+</script>
+
+</body>
+</html>

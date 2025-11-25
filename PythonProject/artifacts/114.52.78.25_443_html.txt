@@ -1,0 +1,11 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+	<head runat="server">
+		<title>Default</title>
+	</head>
+	<body>
+		<script language="javascript">
+			document.location.href = "https://manual.ibk.co.kr/ManualWeb/logins.aspx";
+		</script>
+	</body>
+</html>

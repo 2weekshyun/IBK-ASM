@@ -1,0 +1,3 @@
+<frameset rows="*,0,0" cols="*" border="0" frameborder="NO" framespacing="0">
+	<frame src="/cms/portal" name="mainframe" noresize>
+</frameset>

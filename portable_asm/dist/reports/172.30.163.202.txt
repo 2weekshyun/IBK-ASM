@@ -1,0 +1,12 @@
+Report for 172.30.163.202
+Generated: 2025-11-12 17:43:39
+
+Open ports:
+ - 1194: open
+ - 8080: open
+ - 9000: open
+
+Screenshots:
+ - 8080: OK -> screenshots\172.30.163.202_8080.png
+
+SSH checks: none

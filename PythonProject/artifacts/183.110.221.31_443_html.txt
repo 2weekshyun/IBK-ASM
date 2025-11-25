@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>Download Mobile OTP</title>
+		<style type="text/css">
+			body {font-family:  Georgia, "Malgun Gothic", serif;}
+			.congrats {font-size: 12pt;padding: 10px;text-align:center;}
+			.step (background: white; border: 1px #ccc solid;border-radius:4px; padding:15px;)
+		    .g { font-family: Georgia, "맑은 고딕", serif; }
+		</style>
+		<script lang="ko">			
+		</script>		
+	</head>
+	<body>
+		<div class="congrats"><img src="/resources/img/logo.png"/ width="250" height="61"></div>
+		<div style="text-align:center; color:red; font-size:22;">
+			<p>※ 신규 모바일  APP입니다.</p>
+		</div>
+		<div class="step">
+			<center>
+			<table>
+			<tr>
+			<td><img src="/resources/img/app.png"/  ></td>
+			<td colspan="2">
+			 &nbsp;IBK기업은행 사용자 인증<br><br>
+			<div id="android">
+			 &nbsp;<a href="/resources/download/IBK_auth_dr.apk" type="application/vnd.android.package-archive"><img src="/resources/img/android.png"/  width="100" height="40"  ></a>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div id="apple">
+			 &nbsp;<a href="itms-services://?action=download-manifest&amp;url=https://auth-dr.ibk.co.kr:443/resources/download/ibk.plist"><img src="/resources/img/ios.png"/  width="100" height="40"  ></a>
+            </div>
+            </td>
+			</tr>
+			</table>
+			</center><br>
+			<center>
+			<tr>
+			<td>
+			
+            </td>
+			</tr>
+			</center>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
+
+if ( varUA.indexOf('android') > -1) {
+    //안드로이드
+    //alert(varUA + "111");
+    document.getElementById("apple").style.display="none";
+} else {
+	//alert(varUA + "222");
+	 document.getElementById("android").style.display="none";
+}
+</script>
+	

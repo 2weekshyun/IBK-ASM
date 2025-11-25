@@ -1,0 +1,6 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+        <title>WWS Report Relay Server</title>
+        <body>
+                <h1><center> FXON Server </center></h1>
+        </body>
+</html>

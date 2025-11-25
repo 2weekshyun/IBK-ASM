@@ -1,0 +1,32 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="/res/js/base.os.detect.js"></script>
+
+
+
+
+
+		
+	
+		
+	
+
+<title>WizHelper -  원격지원서비스</title>
+<link rel="shortcut icon" type="image/x-icon" href="/res/base/img/common/shortcut_icon.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<script>
+
+	if(osDetect.isAndroid() || osDetect.isIOS()){
+		location.href = "/m";
+	}
+	else{
+		location.href = "https://15882588.co.kr/client/main.do";
+	}
+</script>
+</head>
+<body>
+</body>
+</html>

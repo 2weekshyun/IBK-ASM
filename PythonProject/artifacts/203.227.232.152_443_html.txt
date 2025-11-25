@@ -1,0 +1,42 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+ <script language="javascript" type="text/javascript">   
+	var uAgent = navigator.userAgent.toLowerCase();      
+	var mobilePhones = new Array('iphone','ipod','android','blackberry','windows ce','nokia','webos','opera mini','sonyericsson','opera mobi','iemobile');
+	var param = location.search;
+	//alert(param);
+
+	var domain_str = location.href ;
+	//alert(domain_str);
+	
+	if (location.search.indexOf('pc=y') == -1){
+		//모바일 기기일경우
+		if(uAgent.indexOf('iphone') != -1 || uAgent.indexOf('ipod') != -1 || uAgent.indexOf('android') != -1 || uAgent.indexOf('blackberry') != -1 || uAgent.indexOf('windows ce') != -1 || uAgent.indexOf('nokia') != -1 ||	uAgent.indexOf('webos') != -1 || uAgent.indexOf('opera mini') != -1 || uAgent.indexOf('sonyericsson') != -1 || uAgent.indexOf('opera mobi') != -1 || uAgent.indexOf('iemobile') != -1  || uAgent.indexOf('ipad') != -1 ) 
+		{
+			alert("모바일용 페이지로 이동합니다.");
+			document.location.replace("https://onemail.ibk.co.kr");
+		//Window 10 Edge Brower 
+		} else if (uAgent.indexOf('edge') != -1)
+		{
+			document.location.replace("http://webmail.ibk.co.kr/resources/html/edge.html");
+		} else if (domain_str.indexOf('onemail') > -1){
+			alert("모바일용 페이지로 이동합니다.");
+			document.location.replace("https://onemail.ibk.co.kr");
+		} else {
+			document.location.replace("https://webmail.ibk.co.kr/main/index.ibk");
+		}
+	} 
+	</script>
+
+ <body>
+ </body>
+</html>

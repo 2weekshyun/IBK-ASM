@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="euc-kr"/>
+<title>�������</title>
+<style>
+body{background:#fff;color:#333}
+#contents{background:#f4faff;border:1px solid #c0d6ee;border-radius:10px;margin:0 auto;padding:7px;text-align:center}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<article>
+		<div id="contents">
+			<div>
+				<div>
+					<h2>�� �������� ã�� �� �����ϴ�.</h2>
+				</div>
+				<div>
+					<p>
+						�ּҰ� �߸� �ԷµǾ��ų�, ���� �Ǵ� �����Ǿ�<br>
+						��û�Ͻ� �������� ã�� �� �����ϴ�.<br>
+						�ٽ� �ѹ� �Է��Ͻ� �ּҰ� �´��� Ȯ���� �ֽʽÿ�.<br>
+					</p>
+				</div>
+			</div>
+		</div>
+	</article>
+</div>
+</body>
+</html>

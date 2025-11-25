@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>nProtect Online Security v1.0.0</title>
+
+    <script type="text/javascript" src="/pluginfree/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/pluginfree/js/nppfs-1.13.0.js" charset="utf-8"></script>
+    <style>
+        body, td, th {
+            font-size: 10pt;
+        }
+
+        input, textarea {
+            font-size: 9pt;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery("#userAgent").text(navigator.userAgent);
+
+//	uV.dV.dk = ad.jt; // Debug
+
+	npPfsCtrl.isInstall({
+		success : function(){
+			npPfsCtrl.hideLoading();
+			$("#nos-install").html("설치됨");
+
+			self.location.replace("/IBK/IBKLogin.aspx");// 로그인 페이지로
+
+			//alert("보안프로그램이 설치되어 있습니다.");
+		},
+		fail: function () {
+
+			npPfsCtrl.hideLoading();
+			//alert("보안프로그램의 설치가 필요합니다.");
+		}
+	});
+
+    /*
+	npPfsStartup(document.form1, false, true, true, "enc", "on");
+	1. form 양식 : 기본값 DOM Document 상의 첫번째 form
+	2. 개인방화벽 사용여부 : 기본값 false
+	3. 키보드보안 사용여부 : 기본값 false
+	4. 단말정보수집 사용여부 : 기본값 false
+	5. 키보드보안 E2E 필드 설정 속성명 : 기본값 "enc"
+	6. 키보드보안 E2E 필드 설정 속성값: 기본값 "on"
+	부가적인 설정은(예, 설치확인 등) /pluginfree/js/nppfs-1.0.0.js를 수정하여 설정하십시오.
+*/
+/*
+	npPfsStartup(
+		document.form2
+		, true
+		, true
+		, true
+		, "npkencrypt"
+		, "on"
+	);
+*/
+
+	npPfsStartup(document.form1, true, false, false, false, "npkencrypt", "on");
+});
+        //function pageload() {
+        //    //console.log("")
+        //    if (window.location.protocol != "https:") {
+        //        console.log(window.location.href);
+        //        //alert(window.location.href);
+        //        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+        //    }
+        //}
+
+    </script>
+
+</head>
+<!-- <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false"> -->
+
+<body>
+    <!--<table>
+        <tr>
+            <th style="text-align:left;font-size:14pt;">접속정보</th>
+        </tr>
+        <tr>
+            <td>
+                <span id="userAgent"></span>
+            </td>
+            <td>
+                <span id="nos-install"></span>
+            </td>
+        </tr>
+    </table>
+
+    <form name="dummy"></form>
+    <div style="margin-bottom:20px; padding:10px; border:1px solid #000;">
+        <table>
+            <tr>
+                <th style="text-align:left;font-size:14pt;">개인방화벽 테스트</th>
+            </tr>
+        </table>
+    </div>
+    <div style="margin-bottom:20px; padding:10px; border:1px solid #000;">
+        <form name="form1" action="./Decrypt.aspx" method="post" target="resultTarget">
+            <div id="nppfs-loading-modal" style="display:none;"></div>
+        </form>
+    </div>-->
+</body>
+
+</html>
+

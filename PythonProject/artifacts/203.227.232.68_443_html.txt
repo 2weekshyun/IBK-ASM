@@ -1,0 +1,11 @@
+<html>
+<head>
+    <meta http-equiv="Refresh" content="0; URL=index.jsp"/>
+    <title> PIB </title>
+    <script type="text/javascript">
+        window.location = "https://"+window.location.hostname+"/uib/jsp/index.jsp"
+    </script>
+</head>
+<body>
+</body>
+</html>

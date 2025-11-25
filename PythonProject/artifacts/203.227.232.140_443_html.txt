@@ -1,0 +1,1045 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
+<head>
+    <title>개인과 기업 모두에게 안전하고 편리한 IBK인증서</title>
+    
+    <meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   	<meta name="description" content="대외서비스 포털" >
+	<meta property="og:title" content="대외서비스 포털">
+	<meta property="og:description" content="대외서비스 포털" />
+	
+    <link type="text/css" rel="stylesheet" href="/statics/css/import.css" />
+    
+    <script type="text/javascript" src="/statics/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/statics/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/statics/js/pub.ui.js"></script>
+    <script type="text/javascript" src="/statics/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/statics/js/jquery.form.js"></script>
+    <script type="text/javascript" src="/statics/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/statics/js/jquery.number.js"></script>
+    <script type="text/javascript" src="/statics/js/underscore.js"></script>
+    <script type="text/javascript" src="/statics/js/json2.js"></script>
+    <script type="text/javascript" src="/statics/js/kica-validation.js"></script>
+    <script type="text/javascript" src="/statics/js/kica-default.js"></script>
+    <script type="text/javascript" src="/statics/js/common/common.js"></script>
+    <script type="text/javascript" src="/statics/js/common_ui.js"></script>
+    <script type="text/javascript">
+        //BOM에 컨텍스트 패스를 전파하기 위한  변수
+        var __contextPath__ = '';
+    </script>
+</head>
+
+<!--[if IE 7]><body class="ie7"><![endif]-->
+<!--[if IE 8]><body class="ie8"><![endif]-->
+<!--[if IE 9]><body class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<body class=""><!-- 개발환경에 따른 class 추가 : test(테스트), local(로컬), dev(개발), qa(QA), prod(운영) -->
+<!--<![endif]-->
+<!-- wrapper -->
+<div id="wrap">
+    <!-- headerWrap -->
+    
+
+
+
+<!-- header -->
+<header id="header" class="header">
+	<div id="pc_header" class="pc_header headerh">
+		<div class="container">
+			<h1><a href="/">대외서비스 포털</a></h1>
+			<nav id="pc_gnb" class="pc">
+				<ul id="pc_gnb_li" class="depth1">
+					<li class="depth1_li" data-menu-id="certSvc">
+						<a href="javascript:inc_headerWrap_fn_pageMove('/certSvc/svcIntrcn/svcIntrcn.sg', 'GET');" class="" title="IBK인증 서비스"><span class="">IBK인증 서비스</span></a>
+						<div class="depth2">
+							<ul>
+								<li class="depth2_li"><a href="javascript:inc_headerWrap_fn_pageMove('/certSvc/svcIntrcn/svcIntrcn.sg', 'GET');">서비스 소개</a></li>
+								<li class="depth2_li last"><a href="javascript:inc_headerWrap_fn_pageMove('/certSvc/coprtnAplyInqr/coprtnAplyInqr.sg', 'GET');">제휴 문의</a></li>
+							</ul>
+						</div>
+					</li>
+					<!-- PC S -->
+					
+					<li class="depth1_li" data-menu-id="devlopGuid">
+						<a href="javascript:inc_headerWrap_fn_pageMove('/devlopGuid/apiGuid/startApi/startApi.sg', 'GET');" class="" title="개발 가이드"><span class="">개발 가이드</span></a>
+						<div class="depth2">
+							<ul>
+								<li class="depth2_li"><a href="javascript:inc_headerWrap_fn_pageMove('/devlopGuid/apiGuid/startApi/startApi.sg', 'GET');">API 가이드</a></li>
+								
+									
+								
+							</ul>
+						</div>
+					</li>
+					
+					<!-- PC E -->
+					<li class="depth1_li" data-menu-id="cs">
+						<a href="javascript:inc_headerWrap_fn_pageMove('/cs/ntc/ntc.sg', 'GET');" class="" title="알림센터"><span class="">알림센터</span></a>
+						<div class="depth2">
+							<ul>
+								<li class="depth2_li"><a href="javascript:inc_headerWrap_fn_pageMove('/cs/ntc/ntc.sg', 'GET');">공지사항</a></li>
+								<li class="depth2_li last"><a href="javascript:inc_headerWrap_fn_pageMove('/cs/faq/faq.sg', 'GET');">자주하는 질문</a></li>
+							</ul>
+						</div>
+					</li>
+					<!-- PC S -->
+					
+						
+					
+					<!-- PC E -->
+				</ul>
+				
+				<!-- pc S -->
+				
+				<div id="pc_gnb_li" class="depth1_right">
+				
+				<!-- login check S -->
+				
+					
+					<div class="glogin_btn">
+						<button type="button" class="btn_default" onclick="location.href='/login.sg'" />로그인</button>
+					</div>
+					
+					
+					
+				
+				<!-- login check E -->
+				
+				</div>
+				
+				<!-- pc E -->
+
+			</nav>
+			<a href="javascript:void(0);" class=" mob btn_menu"><span class="hide">메뉴열기</span></a>
+		</div>
+	</div>
+	<!-- //pc_header -->
+
+
+	<!-- mobile_menu -->
+	<div id="mob_menu" class="headerh">
+		<div class="header_top">
+			<h1 class="logo"><a href="javascrit:void(0);"><span>IBK인증서</span></a></h1>
+		</div>
+		<nav class="slide_menu">
+			<ul id="mobile_gnb" class="depth1">
+				<li class="first">
+					<a href="javascript:inc_headerWrap_fn_pageMove('/certSvc/svcIntrcn/svcIntrcn.sg', 'GET');"><span class="">서비스 소개</span></a>
+				</li>
+				<li>
+					<a href="javascript:inc_headerWrap_fn_pageMove('/cs/ntc/ntc.sg', 'GET');"><span class="">공지사항</span></a>
+				</li>
+				<li>
+					<a href="javascript:inc_headerWrap_fn_pageMove('/cs/faq/faq.sg', 'GET')"><span class="">자주하는 질문</span></a>
+				</li>
+			</ul>
+			<div class="btn_wrap mt15">
+				<button type="button" class="btn_blue" onclick="javascript:inc_headerWrap_fn_pageMove('/certSvc/coprtnAplyInqr/coprtnAplyInqr.sg', 'GET');" />제휴 문의하기</button>
+			</div>
+		</nav>
+		<a href="javascript:void(0);" class="btn_close"><span class="hide">닫기</span></a>
+	</div>
+	<!-- //mobile_menu -->
+
+</header>
+<!-- //header -->
+
+<form id="frmHeaderWrap" name="frmHeaderWrap" method="post" action=""></form>
+
+<script type="text/javascript">
+	$(document).ready(function (){
+		const headerWrap_depth1 = "";
+		
+		// depth1 Active
+		$("#pc_gnb_li li[data-menu-id="+ headerWrap_depth1 +"]").addClass('active');
+		
+		
+		const sessionTimeoutSecVl = "";
+		
+		var timeLeft = parseInt(sessionTimeoutSecVl) + 1; // 초 단위
+		var timerId  = null;
+		
+		var fillZeroToNumber = function(str)
+	    {
+	        if (str < 10)
+	            return '0' + str;
+	        else
+	            return str;
+	    }
+		
+		var updateLeftTime = function()
+	    {
+
+	        /* 남은 시간 갱신 */
+	        --timeLeft;
+	
+	        /* 서버 세션 타이머와 클라이언트 타이머 시간 차 보정 */
+	        if (timeLeft + 0 < 0)
+	        {
+	            /* 타이머 해제 */
+	            clearInterval(timerId);
+	            /* 현재 페이지 갱신 */
+	            //location.reload();
+	            common_fn_pageMove("/main.sg", 'GET')
+	        }
+	
+	        /* 남은 시간이 0이상일 경우만 표출 */
+	        if (timeLeft >= 0)
+	        {
+	            var hours   = fillZeroToNumber(parseInt(timeLeft / 3600));
+	            var minutes = fillZeroToNumber(parseInt((timeLeft % 3600) / 60));
+	            var seconds = fillZeroToNumber(parseInt(timeLeft % 60));
+
+	            /* 남은 시간 표출 */
+	            $('#s_left_time').html(hours + ':' + minutes + ':' + seconds);
+	        }
+	    }
+		
+	    /* 화면 초기화 */
+	    updateLeftTime();
+	    /* 타이머등록(밀리초 단위) */
+	    timerId = setInterval(updateLeftTime, 1000);
+	});
+	
+	/**
+	 * 메뉴 화면이동
+	 */
+	function inc_headerWrap_fn_pageMove(realJobLink, method){
+		common_fn_pageMove(realJobLink, method);
+	}
+</script>
+    <!-- //headerWrap -->
+
+	<!-- content -->
+	<div id="contents" class="contents">
+	
+
+
+
+<!-- leftMenu -->
+<!-- PC 이고, API 가이드 진입시만 노출 -->
+
+	
+
+<!-- //leftMenu -->
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		const leftMenu_depth3 = "";
+		const leftMenu_depth4 = "";
+		
+		// depth3 Active
+		if(leftMenu_depth3){
+			$("#slide_menu ul li[data-menu-id="+ leftMenu_depth3 +"]").addClass('active');
+			$("#slide_menu ul li[data-menu-id="+ leftMenu_depth3 +"]").addClass('hasChild active');
+		}
+		// depth3 Active
+		if(leftMenu_depth4){
+			$("#slide_menu ul li[data-menu-id="+ leftMenu_depth4 +"]").addClass('active');
+		}
+	});
+</script>
+	
+	
+
+
+
+
+
+
+<div class="main-wrap">
+					
+	<section class="main-visual">
+		<div class="inner">
+			<div class="visual-area">
+				
+			</div>
+			<div class="txt-area">
+				<p class="txt">개인과 기업 모두에게<br> 안전하고 편리한<br> IBK인증서</p>
+				<div class="btn_wrap">
+					<button type="button" class="btn_blue" onclick="javascript:inc_headerWrap_fn_pageMove('/certSvc/coprtnAplyInqr/coprtnAplyInqr.sg', 'GET');">제휴 문의하기<i class="arrow-r"></i></button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="main-features">
+		<ul class="list">
+			<li>
+				<i class="ic01"><img src="/statics/images/contents/main/main-intro-ic01.png" alt=""></i>
+				<div>
+					<p class="tit">정부에서 인가 받은 <br>안전한 인증서</p>
+					<p class="txt">안정성과 신뢰성을 인정받아<br> 과학기술정보통신부 전자서명인증사업자 인정 및<br> 방송통신위원회 본인확인기관으로 지정되었어요.</p>
+				</div>
+			</li>
+			<li>
+				<i class="ic02"><img src="/statics/images/contents/main/main-intro-ic02.png" alt=""></i>
+				<div>
+					<p class="tit">언제 어디서나 <br>간편하게 인증</p>
+					<p class="txt">시간과 디바이스 제약 없이 간편하게 발급받고<br> 금융거래는 물론 전자서명과 본인확인거래를 이용할 수 있어요.</p>
+				</div>
+			</li>
+			<li>
+				<i class="ic03"><img src="/statics/images/contents/main/main-intro-ic03.png" alt=""></i>
+				<div>
+					<p class="tit">개인, 기업 <br>모든 고객에게 무료</p>
+					<p class="txt">안전하고 편리한 IBK인증서를 부담없이 무료로 이용하세요.</p>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<section class="main-service">
+		<ul class="list">
+			<li>
+				<i class="ic01"><img src="/statics/images/contents/main/main-func-ic01.png" alt=""></i>
+				<div>
+					<p class="tit">본인확인</p>
+					<p class="txt">회원가입 또는 온라인거래시 신원확인 정보(CI/DI)를 제공하며<br> 제휴기관은 이를 고객DB에 저장합니다.</p>
+				</div>
+			</li>
+			<li>
+				<i class="ic02"><img src="/statics/images/contents/main/main-func-ic02.png" alt=""></i>
+				<div>
+					<p class="tit">간편인증</p>
+					<p class="txt">인증서로 로그인 시 고객의 CI 정보를 제공하고,<br> 제휴기관은 가입자의 정보와 비교하여 고객을 인증합니다.</p>
+				</div>
+			</li>
+			<li>
+				<i class="ic03"><img src="/statics/images/contents/main/main-func-ic03.png" alt=""></i>
+				<div>
+					<p class="tit">전자서명</p>
+					<p class="txt">계좌개설, 대출신청 등에 인증서 소유자 본인이 전자거래정보를<br> 서명하여 서명자 본인이 거래를 하였음을 증명합니다.</p>
+				</div>
+			</li>
+			<li>
+				<i class="ic04"><img src="/statics/images/contents/main/main-func-ic04.png" alt=""></i>
+				<div>
+					<p class="tit">마이데이터</p>
+					<p class="txt">마이데이터 서비스를 위한 이용 동의 등에서<br> 주요 인증수단으로 활용합니다.</p>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<section class="main-partnership">
+		<div class="inner">
+			<p class="txt">금융을 넘어 공공/생활서비스까지<br> 다양한 영역에서 IBK인증서를 활용해 보세요.</p>
+			<div class="btn_wrap">
+				<button type="button" class="btn_blue" onclick="javascript:inc_headerWrap_fn_pageMove('/certSvc/coprtnAplyInqr/coprtnAplyInqr.sg', 'GET');">제휴 문의하기<i class="arrow-r"></i></button>
+			</div>
+		</div>
+	</section>
+
+</div><!--//main-wrap-->
+
+<script type="text/javascript">
+	$(function() {
+	});
+	
+	// 쿠키 불러오기
+	function getCookie(name) {
+	  var obj = name + "=";
+	  var x = 0;
+	  while (x <= document.cookie.length) {
+	    var y = (x + obj.length);
+	    if (document.cookie.substring(x, y) == obj) {
+	      if ((endOfCookie = document.cookie.indexOf(";", y)) == -1)
+	        endOfCookie = document.cookie.length;
+	      return unescape(document.cookie.substring(y, endOfCookie));
+	    }
+	    x = document.cookie.indexOf(" ", x) + 1;
+
+	    if (x == 0) break;
+	  }
+	  return "";
+	}
+	
+	function popUp(ntcCnt) {
+		
+		for(let i=1; i<ntcCnt+1; i++){
+			var cookieName = 'popupFrame'+i;
+			const value = getCookie(cookieName);
+			
+			if(value != 'Y'){
+				var option	= "";
+				var width	= 550;
+				var height	= 450;
+				var top 	= 10 + 90*(i-1);
+				var left	= 10 + 150*(i-1);
+				option="width=" + width + "px, height=" + height + "px, top=" + top + "px, left=" + left + "px";
+								
+				window.open("popupFrame.sg?Idx="+i, "", option);
+			}
+		}
+	}
+	
+	window.onload = function () {
+		var ntcCnt = 0;
+		
+		if(ntcCnt > 0){
+	    	popUp(ntcCnt);
+		}
+	};
+</script>
+
+
+	</div><!-- //content -->
+
+    <!-- footer -->
+    
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+<script type="text/javascript" src="/statics/js/crypto-js/aes.js"></script>
+<script type="text/javascript">
+const envKey = '7ahWfYXSW4VdVlnUzWorJeVjlnBwOejig/fWqCBSxr8=';
+const ivKey = 'blT9WLdMvAKNtQ6iVMwLzQ==';
+</script>
+
+<form id="frmOldPwdChange" name="frmOldPwdChange" method="post">
+	<div id="layerOldPwdChange" class="popup_layer min">
+		<div class="layer_tit">
+			<h1 tabindex="0"><span>비밀번호 변경</span></h1>
+		</div>
+		<div class="layer_content" tabindex="0">
+			<div class="mtm15">
+				<ul class="list_form01">
+					<li class="" id="liOldPwd"><!--  오류시 class= error 추가 후 하단  p.error_msg 오류 메세지를 appender 메세지 추가 -->
+						<div class="dt"><label for="inpOldPwd">현재 비밀번호</label></div>
+						<div class="dd">
+							<div class="placeholder_wrap ipt_txt_d">
+								<input type="password" id="inpOldPwd" name="inpOldPwd" placeholder="현재 비밀번호를 입력해 주세요" data-rule-required="true" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="full line" style="margin-top:3.2rem;margin-bottom:1.0rem;border-bottom: dashed 1px #ccced3"></div>
+					</li>
+					<li class="" id="liNewPwd"><!--  오류시 class= error 추가 후 하단  p.error_msg 오류 메세지를 appender 메세지 추가 -->
+						<div class="dt"><label for="inpNewPwd">새 비밀번호</label></div>
+						<div class="dd">
+							<input type="password" id="inpNewPwd" name="inpNewPwd" maxlength="" placeholder="영문 대/소문자, 숫자, 기호 조합 자 이상" data-rule-required="true" onfocusout="fn_validPwd(this);"/>
+						</div>
+						<p class="error_msg" id="pNewPwd" style="display:none;"></p>
+					</li>
+					<li class="" id="liNewPwdCfmn">
+						<div class="dt"><label for="inpNewPwdCfmn">새 비밀번호 확인</label></div>
+						<div class="dd">
+							<input type="password" id="inpNewPwdCfmn" name="inpNewPwdCfmn" maxlength="" placeholder="비밀번호를 다시 한번 입력해 주세요" data-rule-required="true" />
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="btn_wrap pop_btn_wrap">
+			<button type="button" class="btn_gray" id="btnOldPwdCancel">취소</button>
+			<button type="button" class="btn_blue" id="btnOldPwd">변경</button>
+		</div>
+	
+		<a href="javascript:void(0);" class="btn_close" data-roll="layer-pop-off" onclick="javascript:fn_layerOldPwdChangeClose();"><span class="hide">닫기</span></a>
+	</div>
+</form>
+
+<script type="text/javascript">
+	$(function(){
+		$("#btnOldPwd").on("click", () => {
+			layerPwdChange_fn_modOldPassword();
+		});
+		
+		$("#btnOldPwdCancel").on("click", () => {
+			fn_layerOldPwdChangeClose();
+		})
+	});
+	
+	function fn_inpPwdChk() {
+		var rtn = true;
+		if("" == $("#inpOldPwd").val()) {
+			if(!($("#liOldPwd.error").length)){
+				$("#liOldPwd").addClass('error');
+				$("#liOldPwd").append('<p class="error_msg">현재 비밀번호를 입력해 주세요.</p>');
+			}
+			rtn = false;
+			return rtn;
+		} else {
+			$("#liOldPwd").removeClass('error');
+			$("#liOldPwd").find(".error_msg").remove();
+		}
+		
+		if("" == $("#inpNewPwd").val()) {
+			if(!($("#liNewPwd.error").length)){
+				$("#liNewPwd").addClass('error');
+				$("#pNewPwd").empty().append('<p class="error_msg">새 비밀번호를 입력해 주세요.</p>').show();
+// 				$("#liNewPwd").append('<p class="error_msg">새 비밀번호를 입력해 주세요.</p>');
+// 				$("#pNewPwd").text("새 비밀번호를 입력해 주세요.");
+// 				$("#pNewPwd").show();
+			}
+			rtn = false;
+			return rtn;
+		}else {
+			$("#liNewPwd").removeClass('error');
+// 			$("#liNewPwd").find(".error_msg").remove();
+			$("#pNewPwd").empty().hide();
+		}
+		
+		if("" == $("#inpNewPwdCfmn").val()) {
+			if(!($("#liNewPwdCfmn.error").length)){
+				$("#liNewPwdCfmn").addClass('error');
+				$("#liNewPwdCfmn").append('<p class="error_msg">새 비밀번호 확인을 입력해 주세요.</p>');
+			}
+			rtn = false;
+			return rtn;
+		}else {
+			$("#liNewPwdCfmn").removeClass('error');
+			$("#liNewPwdCfmn").find(".error_msg").remove();
+		}
+		
+		if($("#inpNewPwd").val() != $("#inpNewPwdCfmn").val()) {
+			if(!($("#liNewPwdCfmn.error").length)){
+				$("#liNewPwdCfmn").addClass('error');
+				$("#liNewPwdCfmn").append('<p class="error_msg">비밀번호가 일치하지 않습니다.</p>');
+			}
+			rtn = false;
+			return rtn;
+		}else {
+			$("#liNewPwdCfmn").removeClass('error');
+			$("#liNewPwdCfmn").find(".error_msg").remove();
+		}
+		
+		return rtn;
+	}
+	
+	function layerPwdChange_fn_modOldPassword() {
+		if(!fn_inpPwdChk()) return;
+		
+		fn_validPwd().then(isValid => {
+			if(!isValid) return;
+			
+			const encOldPwd		= encodedByAES256(encodeURIComponent($("#inpOldPwd").val()),envKey,ivKey);
+			const encNewPwd 	= encodedByAES256(encodeURIComponent($("#inpNewPwd").val()), envKey, ivKey);
+			const encNewPwdCfmn = encodedByAES256(encodeURIComponent($("#inpNewPwdCfmn").val()), envKey, ivKey);
+			
+			$.ajax({
+	       		type : "POST",
+	               data : {
+	            	"inpAcntId"		:	$("#inpAcntId").val(),
+	               	"encOldPwd"		:	encOldPwd,
+	               	"encNewPwd"		:	encNewPwd,
+	               	"encNewPwdCfmn"	:	encNewPwdCfmn,
+	               },
+	               url : "/modOldPassword.json",
+	             	success: function(data) {
+	             		if(data.code == 'success') {
+	             			common_openAlert(data.msg, null, () => {
+								fn_layerOldPwdChangeClose();
+	             			});
+	             		}else{
+	             			common_openAlert(data.msg);
+	             		}
+	             	},
+	             	error: function(data) {
+	             		common_openAlert(data.msg);
+	             	}
+	       	});
+		});
+	}
+	
+	function fn_validPwd(e) {
+		let promise = new Promise((resolve, reject) => {
+			const value = $(e).val() || $("#inpNewPwd").val();
+			if(!value) return;
+			
+			const encNewPwd = encodedByAES256(encodeURIComponent(value), envKey, ivKey);
+			
+			$.ajax({
+	       		type : "POST",
+	               data : {
+		            	"inpAcntId"		:	$("#inpAcntId").val(),
+		               	"encNewPwd"		:	encNewPwd,
+	               },
+	               url : "/getValidPwd.json",
+	             	success: function(data) {
+	             		if(data.code == 'success') {
+	           				$("#liNewPwd").removeClass('error');
+// 	           				$("#liNewPwd").find(".error_msg").remove();
+	           				$("#pNewPwd").empty().hide();
+	           				resolve(true);
+	             		} else if(data.code == 'fail'){
+	             			if(!($("#liNewPwd.error").length)){
+	            				$("#liNewPwd").addClass('error');
+	            				$("#pNewPwd").empty().append(data.msg).show();
+// 	            				$("#pNewPwd").text(data.msg);
+// 	            				$("#pNewPwd").show();
+// 	            				$("#liNewPwd").append('<p class="error_msg">'+data.msg+'</p>');
+	            			}else{
+	            				$("#pNewPwd").empty().append(data.msg).show();
+// 	            				$("#pNewPwd").text(data.msg);
+// 	            				$("#pNewPwd").show();
+// 	            				$("#liNewPwd").find(".error_msg").text(data.msg)
+	            			}
+	             			resolve(false);
+	             		} else {
+	             			common_openAlert(data.msg);
+	             			resolve(false);
+	             		}
+	             	},
+	             	error: function(data) {
+	             		common_openAlert(data.msg);
+	             		resolve(false);
+	             	}
+	       	});
+		});
+		
+		return promise;
+	}
+	
+	function layerOldPwdChage_fn_openPwdChange(arg) {
+		argData = arg;
+		
+		common_openLayer('layerOldPwdChange');
+	}
+	
+	function fn_layerOldPwdChangeClose() {
+		$("#frmOldPwdChange").find("input[type='password']").val("");
+		common_closeLayer('layerOldPwdChange');
+	}
+</script>
+
+
+	
+
+
+
+
+
+
+<div id="layerMyInfChg" class="popup_layer min" style="min-height:60rem;max-width:50rem">
+	<div class="layer_tit">
+		<h1 tabindex="0"><span>내 정보 변경</span></h1>
+	</div>
+	<div class="layer_content" tabindex="0">
+		<div class="mtm15">
+			<form id="frmMyInfChg" name="frmMyInfChg">
+				<ul class="list_form01">
+					<li>
+						<div class="dt"><label for="inpDeptNm">부서</label></div>
+						<div class="dd">
+							<div class="placeholder_wrap ipt_txt_d">
+								<input type="text" id="inpDeptNm" name="inpDeptNm" title="부서" placeholder="부서를 입력해 주세요" value="" maxlength="30">
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="dt"><label for="inpClsfNm">직급</label></div>
+						<div class="dd">
+							<input type="text" id="inpClsfNm" name="inpClsfNm" title="직급" placeholder="직급을 입력해 주세요" value="" maxlength="30">
+						</div>
+					</li>
+					<li id="liHp" class="">
+						<div class="dt"><label for="inpHp">연락처</label></div>
+						<div class="dd">
+							<input type="text" id="inpHp" name="inpHp" title="연락처" placeholder="연락처를 입력해 주세요" value="" data-format="phone" maxlength="30" data-limit="num" onfocusout="fn_focusoutInpHp(this);">
+						</div>
+					</li>
+					<li id="liEmail" class="">
+						<div class="dt"><label for="inpEmail">이메일</label></div>
+						<div class="dd">
+							<input type="text" id="inpEmail" name="inpEmail" title="이메일" placeholder="이메일을 입력해 주세요" value="" data-limit="eng|num" data-allow="@.-_" data-limit="eng|num" onfocusout="fn_focusoutInpEmail(this);">
+						</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	<div class="btn_wrap pop_btn_wrap">
+		<button type="button" class="btn_gray" id="btnLayerMyInfCancel">취소</button>
+		<button type="button" class="btn_blue" id="btnLayerMyInfChg">변경</button>
+	</div>
+
+	<a href="javascript:void(0);" class="btn_close" onclick="fn_layerOldPwdChangeClose();"><span class="hide">닫기</span></a>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$("#btnLayerMyInfChg").on("click", () => {
+			fn_modMyInf();
+		});
+		
+		$("#btnLayerMyInfCancel").on("click", () => {
+			fn_layerMyInfChgClose();
+		});
+	});
+	
+	function fn_getMyInfJson() {
+		$.ajax({
+			type: 'POST',
+			data: {},
+			url: "/myPge/myInf/getMyInf.json",
+			success: function(data) {
+				$("#inpDeptNm").val(data?.deptNm || '');
+				$("#inpClsfNm").val(data?.clsfNm || '');
+				$("#inpHp").val(data?.hp || '');
+				$("#inpEmail").val(data?.email || '');
+			},
+			error: function(xhr, ajaxOpts, thrownErr) {
+				common_openAlert('시스템 오류가 발생하였습니다. 잠시 후 다시 시도해 주십시요.');
+			} 
+		})
+	}
+	
+	function fn_modMyInf() {
+		if(!fn_focusoutInpEmail() || !fn_focusoutInpHp()) return;
+		
+		$.ajax({
+			type: 'POST',
+			url: "/myPge/myInf/modMyInf.json",
+			data: $("#frmMyInfChg").serializeObject(),
+			success: function(data) {
+				if(data.resultYn == 'Y') {
+					common_openAlert('정보가 변경되었습니다.', null, () => {
+						fn_layerMyInfChgClose();
+						// 부모창 정보 재조회
+						fn_getMyInf();
+					});
+				} else {
+					common_openAlert('정보 변경이 실패하였습니다. 잠시 후 다시 시도해 주십시요.');
+				}
+			},
+			error: function(xhr, ajaxOpts, thrownErr) {
+				common_openAlert('시스템 오류가 발생하였습니다. 잠시 후 다시 시도해 주십시요.');
+			} 
+		});
+	}
+	
+	function layerMyInfChg_fn_open(arg) {
+		argData = arg;
+		
+		fn_getMyInfJson();
+		
+		common_openLayer('layerMyInfChg');
+	}
+	
+	function fn_layerMyInfChgClose() {
+		common_closeLayer('layerMyInfChg');
+	}
+	
+	function fn_focusoutInpHp(el) {
+		$("#liHp").removeClass('error');
+		$("#liHp").find(".error_msg").remove();
+		
+		let value = $(el).val() || $("#inpHp").val();
+		if(!value) return true;
+			
+		value = value.replace(/-/gi, "");
+        var regExp = /^[0-9]{2,4}-?[0-9]{3,4}-?[0-9]{4}$/;
+        if (regExp.test(value)) {
+        	return true;
+        } else {
+        	$("#liHp").addClass('error');
+			$("#liHp").append('<p class="error_msg">전화번호 형식이 올바르지 않습니다.</p>');
+			return false;
+        }
+	}
+	
+	function fn_focusoutInpEmail(el) {
+		$("#liEmail").removeClass('error');
+		$("#liEmail").find(".error_msg").remove();
+		
+		const value = $(el).val() || $("#inpEmail").val();
+		if(!value) return true;
+		
+		var regExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;
+        if (regExp.test(value)) {
+            return true;
+        } else {
+        	$("#liEmail").addClass('error');
+			$("#liEmail").append('<p class="error_msg">이메일 형식이 올바르지 않습니다.</p>');
+            return false;
+        }
+	}
+</script>
+
+
+
+
+<!-- footer -->
+<footer id="footer">
+	<div class="footer">
+		<div class="footer-link">
+			<ul class="list">
+			
+				<li><a href="javascript:inc_headerWrap_fn_pageMove('/stplat/svcActs.sg', 'GET');"">서비스 이용약관</a></li>
+				<li class="privacy"><a href="javascript:inc_headerWrap_fn_pageMove('/stplat/indvdlInfoPrcsPolicy.sg', 'GET');"">개인정보처리방침</a></li>
+				<li><a href="javascript:inc_headerWrap_fn_pageMove('/stplat/signCertRule.sg', 'GET');"">전자서명인증업무준칙</a></li>
+				
+				<li><a href="javascript:inc_headerWrap_fn_pageMove('/certSvc/coprtnAplyInqr/coprtnAplyInqr.sg', 'GET');">제휴문의</a></li>
+				
+			</ul>
+		</div>
+		<div class="address">
+			<p class="copyright"><span>Copyright  IBK(INDUSTRIAL BANK OF KOREA) All rights reserved.</span></p>
+		</div>
+	</div>
+</footer>
+<!-- //footer -->
+
+    <!-- //footer -->
+
+    <!-- common layer -->
+    
+
+<!-- alert-->
+<div id="commonAlert" class="alert_popup">
+	<div class="layer_content" tabindex="0">
+		<p><span class="bold" id="commonAlertMsg"></span></p>
+	</div>
+	<div class="btn_wrap">
+		<button type="button" class="btn_blue" id="commonAlertBtn" data-roll="layer-pop-off"></button>
+	</div>
+</div>
+<!-- //poup layer -->
+
+<!-- confirm-->
+<div id="commonConfirm" class="alert_popup">
+	<div class="layer_content" tabindex="0">
+		<p id="commonConfirmMsg">
+		
+		</p>
+	</div>
+	<div class="btn_wrap">
+		<button type="button" class="brn_default mid btn_gray"  id="commonConfirmCancelBtn" data-roll="layer-pop-off"></button>
+		<button type="button" class="btn_blue" id="commonConfirmOkBtn" data-roll="layer-pop-off"></button>
+	</div>
+</div>
+
+<script type="text/javascript">
+// 포커스 위치 확인을 위한 Arr
+const focusArr = [];
+
+$(document).ready(function () {
+// 	if ($(['*[data-roll=layer-pop-on]'].length)){
+// 		var layer_Pop = function(){
+// 			var layerOn = '*[data-roll=layer-pop-on]';
+// 			var layerOff = '*[data-roll=layer-pop-off]';
+
+// 			$(layerOn).on('click', function(){
+// 				var href = $(this).attr('data-link');
+// 				$(this).addClass('parent_focus');
+// 			});
+			
+// 			$(layerOff).on('click', function(){
+// 				if ($('body').length){
+// 					$('.parent_focus').focus().removeClass('parent_focus');//처음 클릭했을떄로 회기
+// 				}
+// 			})
+// 		}()
+// 	}
+});
+
+function alertOn(href) {
+	if (!$('.dimmedup').length){
+		focusArr.push(document.activeElement.id || '');
+		
+		var dimmed ="<div class='dimmedup' style='display:block;'></div>"
+		$('body').append(dimmed);
+		//$('#'+href).show();
+		$('body').addClass('noScroll'); //임시코드
+		$('#'+href).addClass('is_active');
+		if($('#'+href).find('h1').length){
+			$('#'+href).find('h1').attr('tabindex',0).focus();
+		} else {
+			$('#'+href).find('.layer_content').attr('tabindex',0).focus();
+		}
+	}
+}
+
+function alertOff(href) {
+	if ($('body').length){
+		var isActive = $(this).parents('.alert_layer');
+		//isActive.hide();
+		$("#"+href).removeClass('is_active');
+		$('.dimmedup').remove();
+		$('body').removeClass('noScroll'); //임시코드
+		$("#"+focusArr.pop()).focus();
+// 		$('.parent_focus').focus().removeClass('parent_focus');
+	}
+}
+
+function layerOn(href) {
+	if (!$('.dimmed').length){
+		focusArr.push(document.activeElement.id);
+		
+		var dimmed ="<div class='dimmed' style='display:block;'></div>"
+		$('body').append(dimmed);
+		//$('#'+href).show();
+		$('body').addClass('noScroll'); //임시코드
+		$('#'+href).addClass('is_active');
+		if($('#'+href).find('h1').length){
+			$('#'+href).find('h1').attr('tabindex',0).focus();
+		} else {
+			$('#'+href).find('.layer_content').attr('tabindex',0).focus();
+		}
+	}
+}
+
+function layerOff(href) {
+	if ($('body').length){
+		var isActive = $(this).parents('.popup_layer');
+
+		//isActive.hide();
+		$("#"+href).removeClass('is_active');
+		$('.dimmed').remove();
+		$('body').removeClass('noScroll'); //임시코드
+		$("#"+focusArr.pop()).focus();
+// 		$('.parent_focus').focus().removeClass('parent_focus');
+	}
+}
+
+
+function common_openAlert(msg, btnName, callback) {
+	const comBtnName = btnName ? btnName : "확인";
+	$("#commonAlertMsg").empty().html(msg);
+	$("#commonAlertBtn").text(comBtnName);
+	
+	$("#commonAlertBtn").on("click", function () {
+		if(typeof callback !== 'function') {
+
+		}else{
+			callback();
+		}
+		alertOff('commonAlert')
+		$("#commonAlertBtn").off('click');
+	});
+	
+	alertOn('commonAlert');
+}
+
+function common_openConfirm(title, msg, btnOkName, btnCancelName, okCallback, cancelCallback) {
+	const comOkBtnName = btnOkName ? btnOkName : "확인";
+	const comCancelBtnName = btnCancelName ? btnCancelName : "취소";
+	$("#commonConfirmMsg").empty().html('<span class="bold">'+title+'</span><br />' + msg);
+	$("#commonConfirmOkBtn").text(comOkBtnName);
+	$("#commonConfirmCancelBtn").text(comCancelBtnName);
+	
+	$("#commonConfirmOkBtn").on("click", function () {
+		if(typeof okCallback !== 'function') {
+			
+		}else{
+			okCallback();
+		}
+		alertOff('commonConfirm');
+		$("#commonConfirmOkBtn").off('click');
+		$("#commonConfirmCancelBtn").off('click');
+	});
+	
+	$("#commonConfirmCancelBtn").on("click", function () {
+		if(typeof cancelCallback !== 'function') {
+
+		}else{
+			cancelCallback();
+		}
+		alertOff('commonConfirm');
+		$("#commonConfirmOkBtn").off('click');
+		$("#commonConfirmCancelBtn").off('click');
+	});
+	
+	alertOn('commonConfirm');
+}
+
+function common_openLayer(href) {
+	layerOn(href);
+}
+function common_closeLayer(href) {
+	layerOff(href);
+}
+</script>
+
+    <!-- //common layer -->
+</div><!-- //wrapper -->
+
+
+
+
+
+
+
+<div class="popup_layer" id="layerIndvdlinfoAgre">
+	<div class="layer_tit">
+		<h1 tabindex="0"><span>개인정보 수집 및 이용 동의</span></h1>
+	</div>
+	<div class="layer_content overflowy" tabindex="0">
+		<p>귀 행은 IBK인증서 서비스 제휴 문의와 관련하여 귀 행이 이용(제휴)기관 담당자의 개인정보를 수집·이용하고자 하는 경우에는 <span class="fc_blue">「개인정보보호법」, 「전자서명법」 등 관계 법령에 따라 본인의 동의</span>가 필요합니다.</p>
+		<div class="round_box mt30">
+			<p class="agreed_tit">수집·이용 목적</p>
+			<ul class="dot_list">
+				<li>「IBK인증서」 제휴 문의 접수 및 관리</li>
+				<li>전자서명인증업무 사고 조사, 분쟁해결, 민원처리</li>
+				<li>법령상 의무 이행</li>
+			</ul>
+
+			<p class="agreed_tit mt20">수집·이용 항목</p>
+			<ul class="dot_list">
+				<li>(이용(제휴)기관 담당자 개인정보) 이름, 직책, 연락처, 이메일</li>
+			</ul>
+
+			<p class="agreed_tit mt20">보유 및 이용기간</p>
+			<ul class="dot_list fc_blue">
+				<li class="fc_blue">개인정보는 제휴문의 접수일로부터 6개월까지 보유·이용됩니다.</li>
+				<li class="fc_blue">유효기일 도래 이후에는 이용 목적과 관련된 금융사고 조사, 분쟁 해결, 민원처리, 법령상 의무이행을 위하여 필요한 범위 내에서만 보유·이용됩니다.</li>
+			</ul>
+
+			<p class="agreed_tit mt20">거부 권리 및 불이익</p>
+			<p>동의를 거부할 수 있습니다. 다만, 개인정보 수집·이용에 관한 동의는 IBK인증서 서비스제휴 문의 접수 및 질의 답변을 위하여 필수적이므로, 동의하셔야만 제휴 문의 접수 및 신청이 가능합니다.</p>
+		</div>
+	</div>
+	<div class="btn_wrap">
+		<button type="button" class="btn_blue" onclick="fn_agre();" />동의하기</button>
+	</div>
+
+	<a href="javascript:void(0);" class="btn_close" onclick="fn_closeIndvdlinfoLayer();"><span class="hide">닫기</span></a>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$("#btnSubmit").on("click", () => {
+			fn_agre();
+		});
+		
+	});
+	
+	
+	function fn_closeIndvdlinfoLayer() {
+		common_closeLayer("layerIndvdlinfoAgre");
+	}
+	
+	function fn_agre(){
+		$('input:checkbox[id="chkIndvdlinfoUseAgre"]').prop('checked',true);
+		common_closeLayer("layerIndvdlinfoAgre");
+		validateChk();
+	}
+	
+	
+	
+</script>
+
+
+</body>
+</html>
